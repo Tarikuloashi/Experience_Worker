@@ -1,5 +1,8 @@
 @extends('users.userMaster')
 
+@section('title')
+	User Home
+@endsection
 
 
 

@@ -6,8 +6,10 @@
     
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{asset('views/bootstrap/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{asset('views/H_S/H_S.css')}}">
-
+    <link rel="stylesheet" href="{{asset('views/H_S/headerSidebar.css')}}">
+    <title>
+        @yield('title')
+    </title>
   </head>
 
   <body>
@@ -17,38 +19,28 @@
             <nav id="sidebar">
                 <div class="sidebar-header">
                     <br><br><br>
-                    <h3><a href="{{url('/userHome')}}">Experience Worker</a></h3>
-                    <strong>WS</strong>
+                    <h3 class="glyphicon glyphicon-home" ><a  href="{{url('/userHome')}}"> Experience Worker</a></h3>
+                    <strong>EW</strong>
                 </div>
 
-                            <div style="border-top:1px solid rgba(69, 74, 84, 0.7)"></div>
-                            <div class="down">  
-                                      <a href="#"><img src="{{asset('views/H_S/1.jpg')}}"></a>
-                                      <a href="#"><span class=" name-caret">Md.Tarikul Islam Oashi</span></a>
-                                     <p>User</p>
-                                    <ul>
-                                    <li><a class="tooltips" href="index.html"><span>Profile</span><i class="lnr lnr-user"></i></a></li>
-                                        <li><a class="tooltips" href="index.html"><span>Settings</span><i class="lnr lnr-cog"></i></a></li>
-                                        <li><a class="tooltips" href="index.html"><span>Log out</span><i class="lnr lnr-power-switch"></i></a></li>
-                                        </ul>
-                                    </div>
+                           
 
                 <ul class="list-unstyled components">
                     <li>
                         <a href="{{url('/userProfile')}}">
-                            <i class="glyphicon glyphicon-briefcase"></i>
+                            <i class="glyphicon glyphicon-user"></i>
                              Profile
                         </a>
                     </li>
                     <li>
                         <a href="{{url('/userPost')}}">
-                            <i class="glyphicon glyphicon-briefcase"></i>
+                            <i class="glyphicon glyphicon-share"></i>
                             Post Problem
                         </a>
                     </li> 
                     <li>
                         <a href="{{url('/userHistory')}}">
-                            <i class="glyphicon glyphicon-briefcase"></i>
+                            <i class="glyphicon glyphicon-tasks"></i>
                             Work History
                         </a>
                     </li> 

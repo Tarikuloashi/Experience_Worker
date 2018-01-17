@@ -1,6 +1,8 @@
 @extends('users.userMaster')
 
-
+@section('title')
+	User History
+@endsection
 
 
 @section('content')
