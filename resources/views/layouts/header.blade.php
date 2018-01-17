@@ -1,5 +1,4 @@
 
-            <div id="content" class="bg-success">
                 <nav class="navbar navbar-default navbar-fixed-top">
                     <div class="container-fluid ">
 
@@ -17,4 +16,3 @@
                         </div>
                     </div>
                 </nav>
-    </div>

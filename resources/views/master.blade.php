@@ -6,19 +6,24 @@
     
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{asset('views/bootstrap/css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{asset('views/H_S_/H_S.css')}}">
+    <link rel="stylesheet" href="{{asset('views/H_S/H_S.css')}}">
 
   </head>
 
   <body>
     
     @include('layouts.header')
-    @yield('content')
+    <div id="content" class="bg-success">
+    <br><br><br><br>
+     @yield('content')
+    </div>
+
+
 
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
-    <script src="{{('asset(bootstrap/js/jquery-3.2.1.min.js')}}"></script>
+    <script src="{{asset('views/bootstrap/js/jquery-3.2.1.min.js')}}"></script>
     
-    <script src="{{('asset(bootstrap/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('views/bootstrap/js/bootstrap.min.js')}}"></script>
     
     
 

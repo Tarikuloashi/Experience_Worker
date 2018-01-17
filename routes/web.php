@@ -11,12 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/home',function(){
+Route::get('/',function(){
 	return view('layouts.home');
 });
 
 Route::get('/userHome','userController@home');
+Route::get('/userProfile','userController@profile');
+Route::get('/userPost','userController@post');
+Route::get('/userHistory','userController@history');
