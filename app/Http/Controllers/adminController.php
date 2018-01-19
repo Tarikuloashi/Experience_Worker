@@ -6,5 +6,7 @@ use Illuminate\Http\Request;
 
 class adminController extends Controller
 {
-    //
+    public function home(){
+    	return view('admins.adminHome');
+    }
 }

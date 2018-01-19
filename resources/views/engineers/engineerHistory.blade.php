@@ -1,4 +1,4 @@
-@extends('users.userMaster')
+@extends('admins.adminMaster')
 
 @section('title')
 	User History

@@ -3,8 +3,9 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Sentinel;
 
-class UserMiddleware
+class VisitorsMiddleware
 {
     /**
      * Handle an incoming request.
@@ -15,8 +16,10 @@ class UserMiddleware
      */
     public function handle($request, Closure $next)
     {
+        if(!Sentinel::check())
             return $next($request);
-        
+        else
+           return redirect('/');
         
     }
 }

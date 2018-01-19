@@ -18,13 +18,41 @@
 Route::get('/',function(){
 	return view('layouts.home');
 });
-Route::get('/register',function(){
-	return view('authentications.register');
+
+Route::group(['middleware'=>'visitors'],function(){
+
+	//Route('/home','registrationController@home');
+	//authentication
+	Route::get('/register','registrationController@register');
+	Route::post('/register','registrationController@postregister');
+
+	Route::get('/login','loginController@login');
+	Route::post('/login','loginController@postLogin');
+
 });
-Route::get('/login',function(){
-	return view('authentications.login');
-});
+
+	
+
+//user 
 Route::get('/userHome','userController@home');
 Route::get('/userProfile','userController@profile');
 Route::get('/userPost','userController@post');
 Route::get('/userHistory','userController@history');
+
+
+Route::group(['middleware'=>'engineer'],function(){
+	//engineer
+	Route::get('/engineerHome','engineerController@home');
+	Route::get('/engineerProfile','engineerController@profile');
+	Route::get('/engineerCurrentJob','engineerController@currentJob');
+	Route::get('/engineerHistory','engineerController@history');
+
+});
+
+
+Route::group(['middleware'=>'admin'],function(){
+	Route::get('/adminHome','adminController@home');
+	
+});
+
+Route::get('/logout','loginController@logout');

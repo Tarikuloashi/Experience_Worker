@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Sentinel;
 
 class EngineerMiddleware
 {
@@ -15,6 +16,10 @@ class EngineerMiddleware
      */
     public function handle($request, Closure $next)
     {
-        return $next($request);
+        if(Sentinel::check() && Sentinel::getUser()->roles()->first()->slug =='engineer')
+            return $next($request);
+        else
+            return redirect('/');
+    
     }
 }

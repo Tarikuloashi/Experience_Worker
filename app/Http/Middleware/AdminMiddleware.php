@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Sentinel;
 
 class AdminMiddleware
 {
@@ -15,6 +16,10 @@ class AdminMiddleware
      */
     public function handle($request, Closure $next)
     {
-        return $next($request);
+       if(Sentinel::check() && Sentinel::getUser()->roles()->first()->slug =='admin') 
+            // \Log::info('role', ['role'=>Sentinel::getUser()->roles()->first()]);
+            return $next($request);
+        else
+            return redirect('/');
     }
 }
