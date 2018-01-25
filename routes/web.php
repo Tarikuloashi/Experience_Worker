@@ -15,11 +15,13 @@
 //     return view('welcome');
 // });
 
-Route::get('/',function(){
-	return view('layouts.home');
-});
 
 Route::group(['middleware'=>'visitors'],function(){
+
+
+	Route::get('/',function(){
+		return view('layouts.home');
+	});
 
 	//Route('/home','registrationController@home');
 	//authentication
@@ -31,14 +33,14 @@ Route::group(['middleware'=>'visitors'],function(){
 
 });
 
-	
 
-//user 
-Route::get('/userHome','userController@home');
-Route::get('/userProfile','userController@profile');
-Route::get('/userPost','userController@post');
-Route::get('/userHistory','userController@history');
-
+Route::group(['middleware'=>'user'],function(){
+	//user
+	Route::get('/userHome','userController@home');
+	Route::get('/userProfile','userController@profile');
+	Route::get('/userPost','userController@post');
+	Route::get('/userHistory','userController@history');
+});
 
 Route::group(['middleware'=>'engineer'],function(){
 	//engineer
@@ -49,10 +51,10 @@ Route::group(['middleware'=>'engineer'],function(){
 
 });
 
-
+//admin
 Route::group(['middleware'=>'admin'],function(){
 	Route::get('/adminHome','adminController@home');
-	
+
 });
 
 Route::get('/logout','loginController@logout');

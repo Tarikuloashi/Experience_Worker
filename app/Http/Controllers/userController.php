@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Sentinel;
 
 class userController extends Controller
 {
@@ -10,7 +11,11 @@ class userController extends Controller
     	return view('users.userHome');
     }
     public function profile(){
-    	return view('users.userProfile');
+      // $id=Sentinel::getUser();
+      // $user = Sentinel::findById($id);
+      $user =Sentinel::getUser();
+      // return view('users.userProfile',['user' =>$user]);
+    	 return view('users.userProfile',['user'=>$user]);
     }
     public function post(){
     	return view('users.userPost');
@@ -18,6 +23,8 @@ class userController extends Controller
     public function history(){
     	return view('users.userHistory');
     }
+
+
 
 
 }

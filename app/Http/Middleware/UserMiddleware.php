@@ -3,7 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
-
+use Sentinel;
 class UserMiddleware
 {
     /**
@@ -15,8 +15,12 @@ class UserMiddleware
      */
     public function handle($request, Closure $next)
     {
-            return $next($request);
-        
-        
+      if(Sentinel::check())
+          return $next($request);
+      else
+          return redirect('/');
+
+
+
     }
 }
