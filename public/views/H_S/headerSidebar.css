@@ -2,6 +2,7 @@
 body {
     font-family: 'Poppins', sans-serif;
     background: #fafafa;
+    width: 100%;
 }
 
 p {
@@ -50,6 +51,7 @@ i, span {
 .wrapper {
     display: flex;
     align-items: stretch;
+    width: 100%;
 }
 
 #sidebar {
@@ -189,6 +191,8 @@ a.article, a.article:hover {
     CONTENT STYLE
 ----------------------------------------------------- */
 #content {
+    margin-left: 2%;
+    margin-right: 2%;
     padding: 20px;
     min-height: 100vh;
     transition: all 0.3s;

@@ -6,11 +6,49 @@
 
 
 @section('content')
-	
+
 	<h2 class="text-danger">Working History</h2>
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+		<div class="row">
+			<div class="col-md-12">
+				<table class="table table-striped">
+					<tr>
+						<th>No.</th>
+						<th>First Name</th>
+						<th>Last Name</th>
+						<th>Email</th>
+						<th>Room No.</th>
+						<th>Check In</th>
+						<th>Check Out</th>
+						<th>Actions</th>
+					</tr>
+					<a href="/register" class="btn btn-primary pull-right">Add New Guest</a><br><br>
+					<!-- <?php $no=1; ?> -->
+					@foreach($users as $user)
+					<tr>
+							<!-- <td>{{$no++}}</td> -->
+							<td>{{$user->user_name}}</td>
+							<!-- <td>{{$user->last_name}}</td>
+							<td>{{$user->email}}</td> -->
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+							<!-- <td>{{$user->roomNum}}</td> -->
+						<!-- @if ($user->checkIn === null)
+							<td></td>
+							<td></td>
+						@else -->
+							<!-- <td>{{ date('F d, Y', strtotime($user->checkIn)) }}</td>
+							<td>{{ date('F d, Y', strtotime($user->checkOut)) }}</td> -->
+						<!-- @endif -->
 
-
+							<!-- <td>
+								<form class="" action="#" method="post">
+									<input type="hidden" name="_method" value="delete">
+									<input type="hidden" name="_token" value="{{ csrf_token() }}">
+									<a href="{{route('admin.edit',$user->id)}}" class="btn btn-info">Update</a>
+								</form>
+							</td> -->
+						</tr>
+					@endforeach
+				</table>
+			</div>
+		</div>
 @endsection

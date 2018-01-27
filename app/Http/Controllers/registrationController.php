@@ -26,8 +26,8 @@ class registrationController extends Controller
      //    $activation = Activation::create($user);
 
     	// //define another roles of user
-    	//$role = Sentinel::findRoleBySlug('admin');
-    	//$role->users()->attach($user);
+    	$role = Sentinel::findRoleBySlug('user');
+    	$role->users()->attach($user);
 
      //    $this->sendEmail($user, $activation->code);
     	 return 'We send an email to confirm your account';

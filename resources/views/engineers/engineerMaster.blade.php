@@ -3,7 +3,7 @@
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
-    
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{asset('views/bootstrap/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('views/H_S/headerSidebar.css')}}">
@@ -13,38 +13,38 @@
   </head>
 
   <body>
-    
+
     <div class="wrapper">
             <!-- Sidebar Holder -->
             <nav id="sidebar">
                 <div class="sidebar-header">
                     <br><br><br>
-                    <h3 class="glyphicon glyphicon-home" ><a  href="{{url('/userHome')}}"> Experience Worker</a></h3>
+                    <h3 class="glyphicon glyphicon-home" ><a  href="{{url('/engineerHome')}}"> Experience Worker</a></h3>
                     <strong>EW</strong>
                 </div>
 
-                           
+
 
                 <ul class="list-unstyled components">
                     <li>
-                        <a href="{{url('/userProfile')}}">
+                        <a href="{{url('/engineerProfile')}}">
                             <i class="glyphicon glyphicon-user"></i>
                              Profile
                         </a>
                     </li>
                     <li>
-                        <a href="{{url('/userPost')}}">
+                        <a href="{{url('/engineerCurrentJob')}}">
                             <i class="glyphicon glyphicon-share"></i>
-                            Post Problem
+                            Current Job
                         </a>
-                    </li> 
+                    </li>
                     <li>
-                        <a href="{{url('/userHistory')}}">
+                        <a href="{{url('/engineerHistory')}}">
                             <i class="glyphicon glyphicon-tasks"></i>
                             Work History
                         </a>
-                    </li> 
-                    
+                    </li>
+
                 </ul>
             </nav>
 
@@ -72,21 +72,21 @@
                 <br>
                 <br>
                 <br>
-                
+
                 @yield('content')
-                
+
             </div>
     </div>
-            
-        
 
 
-         
-   
+
+
+
+
 
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
     <script type="text/javascript" src="{{asset('views/bootstrap/js/jquery-3.2.1.min.js')}}"></script>
-    
+
     <script type="text/javascript" src="{{asset('views/bootstrap/js/bootstrap.min.js')}}"></script>
      <script type="text/javascript" >
              $(document).ready(function () {
@@ -94,9 +94,9 @@
                      $('#sidebar').toggleClass('active');
                  });
              });
-      
+
      </script>
-    
+
 
   </body>
 </html>

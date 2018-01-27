@@ -16,10 +16,14 @@ class loginController extends Controller
 
     public function postLogin(Request $request){
     	try {
+
+
             if(Sentinel::authenticate($request->all())){
                 $slug = Sentinel::getUser()->roles()->first()->slug;
 
-                if($slug=='admin')
+                if($slug=='user')
+                    return redirect('/userHome');
+                elseif($slug=='admin')
                     return redirect('/adminHome');
                 elseif($slug=='engineer')
                     return redirect('/engineerHome');

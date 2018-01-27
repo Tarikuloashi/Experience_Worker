@@ -15,7 +15,7 @@ class UserMiddleware
      */
     public function handle($request, Closure $next)
     {
-      if(Sentinel::check())
+      if(Sentinel::check() && Sentinel::getUser()->roles()->first()->slug =='user')
           return $next($request);
       else
           return redirect('/');
