@@ -55,6 +55,9 @@ Route::group(['middleware'=>'engineer'],function(){
 Route::group(['middleware'=>'admin'],function(){
 	Route::get('/adminHome','adminController@home');
 	Route::get('/adminUserList','adminController@showUser');
+	Route::get('/adminEngineerList','adminController@showEngineer');
+	Route::get('//adminUserList/{id}','adminController@assignToEngineer');
+	Route::get('//adminEngineerList/{id}','adminController@assignToUser');
 
 });
 

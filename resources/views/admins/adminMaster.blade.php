@@ -49,7 +49,7 @@
             </nav>
 
              <!-- Page Content Holder  -->
-            <div id="content" class="bg-primary">
+            <div id="content">
                 <nav class="navbar  navbar-fixed-top">
                     <div class="container-fluid ">
                         <div class="navbar-header fixed">
