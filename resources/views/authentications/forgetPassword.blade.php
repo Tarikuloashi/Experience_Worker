@@ -11,7 +11,7 @@
                 </div>
                	<div class="panel-body bg-info">
 
-					<form action="/login" method="POST">
+					<form action="/forgetPassword" method="POST">
 						{{csrf_field()}}
 						<!-- ********************************* Message -->
 						@if(session('error'))
@@ -33,17 +33,8 @@
 							</div>
 						</div>
 
-						<div class="form-group">
-							<div class="input-group">
-								<span class="input-group-addon"><i class="fa fa-lock"></i></span>
-								<input type="password" name="password" class="form-control" placeholder="Password" required>
-							</div>
-						</div>
-
-						<a href="/forgetPassword" class="bg-danger">Forget My Password</a>
-
-						<div class="form-group">
-							<input type="submit" value="Sign In" class="btn btn-success pull-right">
+					<div class="form-group">
+							<input type="submit" value="Send Mail" class="btn btn-success pull-right">
 						</div>
 					</form>
 				</div>

@@ -11,7 +11,6 @@
         @yield('title')
     </title>
   </head>
-
   <body>
 
     <div class="wrapper">
@@ -22,8 +21,6 @@
                     <h3 class="glyphicon glyphicon-home" ><a  href="{{url('/engineerHome')}}"> Experience Worker</a></h3>
                     <strong>EW</strong>
                 </div>
-
-
 
                 <ul class="list-unstyled components">
                     <li>
@@ -69,20 +66,10 @@
                         </div>
                     </div>
                 </nav>
-                <br>
-                <br>
-                <br>
-
+                <br><br><br>
                 @yield('content')
-
             </div>
     </div>
-
-
-
-
-
-
 
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
     <script type="text/javascript" src="{{asset('views/bootstrap/js/jquery-3.2.1.min.js')}}"></script>
@@ -96,7 +83,5 @@
              });
 
      </script>
-
-
   </body>
 </html>

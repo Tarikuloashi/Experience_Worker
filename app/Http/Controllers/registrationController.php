@@ -19,17 +19,17 @@ class registrationController extends Controller
 
     public function postregister(Request $request){
         //when auto activate our user
-    	$user = Sentinel::registerAndActivate($request->all());
+    	//$user = Sentinel::registerAndActivate($request->all());
 
 
-     //    $user = Sentinel::register($request->all());
-     //    $activation = Activation::create($user);
+        $user = Sentinel::register($request->all());
+        $activation = Activation::create($user);
 
     	// //define another roles of user
-    	$role = Sentinel::findRoleBySlug('user');
-    	$role->users()->attach($user);
+    	 $role = Sentinel::findRoleById(3);
+    	 $role->users()->attach($user);
 
-     //    $this->sendEmail($user, $activation->code);
+        $this->sendEmail($user, $activation->code);
     	 return 'We send an email to confirm your account';
     }
 
