@@ -50,6 +50,12 @@
                             Add Service
                         </a>
                     </li>
+                    <li>
+                        <a href="{{url('/manageService')}}">
+                            <i class="glyphicon glyphicon-tasks"></i>
+                            Manage Service
+                        </a>
+                    </li>
 
                 </ul>
             </nav>

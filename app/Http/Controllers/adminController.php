@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Sentinel;
 use App\Role;
 use App\Users;
+use DB;
+use App\Service;
 
 class adminController extends Controller
 {
@@ -59,6 +61,21 @@ class adminController extends Controller
 
     public function createService(){
       return view('admins.createService');
+    }
+
+    public function storeService(Request $request){
+      DB::table('services')->insert([
+    		'serviceName'=>$request->serviceName,
+    		'servicePrice'=>$request->servicePrice,
+    		'serviceDescription'=>$request->serviceDescription,
+
+    		]);
+    	return redirect('/createService')->with('message','Service Store Successfully ');
+    }
+
+    public function manageService(){
+      $services=Service::all();
+      return view('admins.manageServices',['services'=>$services]);
     }
 
 

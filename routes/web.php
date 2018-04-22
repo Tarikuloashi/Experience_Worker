@@ -47,6 +47,7 @@ Route::group(['middleware'=>'user'],function(){
 	Route::post('/userUpdateImage','userController@update_avatar');
 	Route::get('/userPost','userController@post');
 	Route::get('/userHistory','userController@history');
+	Route::get('/userShowService','userController@showService');
 });
 
 Route::group(['middleware'=>'engineer'],function(){
@@ -68,6 +69,7 @@ Route::group(['middleware'=>'admin'],function(){
 	Route::get('//adminEngineerList/{id}','adminController@assignToUser');
 	Route::get('/createService','adminController@createService');
 	Route::post('/createService','adminController@storeService');
+	Route::get('/manageService','adminController@manageService');
 
 });
 
