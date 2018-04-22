@@ -11,7 +11,8 @@ use App\User;
 class userController extends Controller
 {
     public function home(){
-    	return view('users.userHome');
+      $user =Sentinel::getUser();
+    	return view('users.userHome',['user'=>$user]);
     }
     public function profile(){
       // $id=Sentinel::getUser();

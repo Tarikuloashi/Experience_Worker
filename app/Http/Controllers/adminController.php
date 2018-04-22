@@ -57,5 +57,9 @@ class adminController extends Controller
       return redirect('/adminUserList');
     }
 
+    public function createService(){
+      return view('admins.createService');
+    }
+
 
 }

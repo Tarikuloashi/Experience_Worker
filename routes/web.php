@@ -66,7 +66,9 @@ Route::group(['middleware'=>'admin'],function(){
 	Route::get('/adminEngineerList','adminController@showEngineer');
 	Route::get('//adminUserList/{id}','adminController@assignToEngineer');
 	Route::get('//adminEngineerList/{id}','adminController@assignToUser');
+	Route::get('/createService','adminController@createService');
+	Route::post('/createService','adminController@storeService');
 
 });
 
-Route::get('/logout','loginController@logout');
+Route::post('/logout','loginController@logout');

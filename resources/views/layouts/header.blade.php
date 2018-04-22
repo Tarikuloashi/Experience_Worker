@@ -5,7 +5,7 @@
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                  <span class="icon-bar"></span>
                  <span class="icon-bar"></span>
-                 <span class="icon-bar"></span>                        
+                 <span class="icon-bar"></span>
              </button>
         <a class="navbar-brand" href="#">Experience Worker</a>
     </div>
@@ -16,10 +16,11 @@
         <li><a href="#">Contact</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
+
         <li><a href="{{url('/register')}}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
         <li><a href="{{url('/login')}}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        
       </ul>
     </div>
   </div>
 </nav>
-

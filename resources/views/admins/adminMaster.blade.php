@@ -44,6 +44,12 @@
                             Ever Work History
                         </a>
                     </li>
+                    <li>
+                        <a href="{{url('/createService')}}">
+                            <i class="glyphicon glyphicon-tasks"></i>
+                            Add Service
+                        </a>
+                    </li>
 
                 </ul>
             </nav>
@@ -61,19 +67,31 @@
 
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                             <ul class="nav navbar-nav navbar-right">
-                                <li><a href="#">Page</a></li>
-                                <li><a href="#">Page</a></li>
-                                <li><a href="#">Page</a></li>
-                                <li><a href="#">Page</a></li>
+                                <li>
+                                  <a href="{{ url('/logout') }}"
+                                      onclick="event.preventDefault();
+                                               document.getElementById('logout-form').submit();">
+                                      Logout
+                                  </a>
+
+                                  <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                      {{ csrf_field() }}
+                                  </form>
+                                </li>
                             </ul>
                         </div>
                     </div>
                 </nav>
-                <br>
-                <br>
-                <br>
-                @yield('content')
+
+
             </div>
+            <div class="container">
+              <div class="row">
+                <br><br><br><br><br><br>
+                @yield('content')
+              </div>
+            </div>
+
     </div>
 
 

@@ -7,8 +7,10 @@
 @section('content')
 
 	<h2 class="text-danger">User List</h2>
-		<div class="row">
-			<div class="col-md-12">
+			<div class="row">
+
+
+			<div class="col-md-10">
 				<table class="table table-striped">
 					<tr>
 						<th>ID</th>
@@ -30,6 +32,7 @@
 						</tr>
 					@endforeach
 				</table>
+
 			</div>
 		</div>
 @endsection

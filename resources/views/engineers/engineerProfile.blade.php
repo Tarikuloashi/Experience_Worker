@@ -28,12 +28,12 @@
 					<p>an   <b> Engineer</b></p>
 				</div>
 				<hr>
-				<ul  >
+				<ul>
 					<li class="list-group-item"><h3 class="bg-success" ><span class="glyphicon glyphicon-user one" ></span> Bangladesh</h3></li>
 					<li class="list-group-item"><h3 class="bg-success"><span class="glyphicon glyphicon-envelope one"></span> {{$engineer->email}}</h3></li>
-					<li></li>
+
 				</ul>
-				<h3 style="margin-left:10%"  >Date Of Joining: 15 Jun 2016</h3>
+				<h3 style="margin-left:10%"  >Date Of Joining: {{$engineer->created_at}}</h3>
 				<hr>
 
 			</div>
