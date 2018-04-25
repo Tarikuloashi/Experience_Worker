@@ -48,6 +48,8 @@ Route::group(['middleware'=>'user'],function(){
 	Route::get('/userPost','userController@post');
 	Route::get('/userHistory','userController@history');
 	Route::get('/userShowService','userController@showService');
+	Route::get('/postRequest/{id}','userController@postRequest');
+	Route::post('/saveRequest','userController@saveRequest');
 });
 
 Route::group(['middleware'=>'engineer'],function(){

@@ -6,11 +6,12 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{asset('views/bootstrap/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('views/H_S/headerSidebar.css')}}">
+    <script type="text/javascript" src="{{asset('views/bootstrap/js/jquery-3.2.1.min.js')}}"></script>
     <title>
         @yield('title')
     </title>
   </head>
-  <body>
+  <body >
     <div class="wrapper">
             <!-- Sidebar Holder -->
             <nav id="sidebar">
@@ -51,7 +52,7 @@
 
              <!-- Page Content Holder  -->
             <div id="content">
-              
+
 
               <br><br><br>
 

@@ -8,6 +8,8 @@ use Image;
 use File;
 use App\User;
 use App\Service;
+use App\serviceRequest;
+use DB;
 
 class userController extends Controller
 {
@@ -16,22 +18,7 @@ class userController extends Controller
     	return view('users.userHome',['user'=>$user]);
     }
     public function profile(){
-      // $id=Sentinel::getUser();<nav class="navbar  navbar-fixed-top">
-      <div class="container-fluid ">
-         <div class="navbar-header fixed">
-             <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
-                 <i class="glyphicon glyphicon-align-left">H</i>
-                 <span></span>
-             </button>
-         </div>
 
-         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-             <ul class="nav navbar-right">
-               <li class="dropdown">
-                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" style="position:relative; padding-left:50px;">
-                   <img src="/uploads/avatars/{{$user->avatar}}" style="width:32px; height:32px; positionn:absolute; top:10px; left:10px; border-radius:50%;">
-                   {{ $user->user_name }}
-                 </a>
 
       // $user = Sentinel::findById($id);
       $user =Sentinel::getUser();
@@ -75,6 +62,29 @@ class userController extends Controller
     public function showService(){
       $services=Service::all();
       return view('users.showService',['services'=>$services]);
+    }
+
+    public function postRequest($id){
+      $serviceById=Service::where('id',$id)->first();
+      return view('users.postRequest',['serviceById'=>$serviceById]);
+    }
+
+    public function saveRequest(Request $request){
+      $allServiceRequest=new serviceRequest();
+      $allServiceRequest->userId=Sentinel::getUser()->id;
+      $allServiceRequest->serviceName=$request->serviceName;
+      $allServiceRequest->servicePrice=$request->servicePrice;
+      $allServiceRequest->serviceDescription=$request->serviceDescription;
+      $allServiceRequest->userDescription=$request->userDescription;
+      $allServiceRequest->lat=$request->lat;
+      $allServiceRequest->lng=$request->lng;
+      $allServiceRequest->save();
+      return redirect('users/userShowService')->with('message','Service Request Post successfully');
+        // // echo '<pre>';
+        // // print_r($user);
+        // // exit();
+        // echo $allServiceRequest;
+
     }
 
 

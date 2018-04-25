@@ -27,7 +27,9 @@
 								<td>{{$service->servicePrice}} Taka</td>
 								<td>{{$service->serviceDescription}}</td>
                 <td>
-									<a href="#"><span class="glyphicon glyphicon-arrow-up">Post Service</span></a>
+									<a href="{{url('/postRequest/'.$service->id)}}" class="btn btn-danger" onclick="return confirm('Are You Sure you want to post a service request');">
+					<span class="glyphicon glyphicon-trash"></span>
+				</a>
 								</td>
 						</tr>
 					@endforeach
