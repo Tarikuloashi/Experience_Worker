@@ -15,9 +15,13 @@ class Services extends Migration
     {
         Schema::create('services',function(Blueprint $table){
           $table->increments('id');
+          $table->integer('categoryid');
           $table->string('serviceName');
-          $table->float('servicePrice',10,2);
+          $table->float('minPrice',10,2);
+          $table->float('maxPrice',10,2);
           $table->text('serviceDescription');
+          $table->text('serviceImage');
+
           $table->timestamps();
         });
     }

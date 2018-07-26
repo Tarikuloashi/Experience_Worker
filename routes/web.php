@@ -1,5 +1,5 @@
 <?php
-
+use Sentinel;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,7 +16,9 @@
 // });
 
 Route::get('/',function(){
-	return view('layouts.home');
+	$user = Sentinel::getUser()->get();
+return $user;
+
 });
 Route::group(['middleware'=>'visitors'],function(){
 
@@ -69,9 +71,16 @@ Route::group(['middleware'=>'admin'],function(){
 	Route::get('/adminEngineerList','adminController@showEngineer');
 	Route::get('//adminUserList/{id}','adminController@assignToEngineer');
 	Route::get('//adminEngineerList/{id}','adminController@assignToUser');
-	Route::get('/createService','adminController@createService');
-	Route::post('/createService','adminController@storeService');
-	Route::get('/manageService','adminController@manageService');
+	// Route::get('/createService','adminController@createService');
+	// Route::post('/createService','adminController@storeService');
+	// Route::get('/manageService','adminController@manageService');
+
+	//CategoryController
+	Route::resource('category','CategoryController');
+	//Service Controller
+	Route::resource('service','ServiceController');
+
+
 
 });
 

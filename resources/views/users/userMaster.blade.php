@@ -12,6 +12,7 @@
     </title>
   </head>
   <body >
+    @include('users.navbar')
     <div class="wrapper">
             <!-- Sidebar Holder -->
             <nav id="sidebar">
@@ -22,12 +23,14 @@
                 </div>
 
                 <ul class="list-unstyled components">
+
                     <li>
                         <a href="{{url('/userProfile')}}">
                             <i class="glyphicon glyphicon-user"></i>
                              Profile
                         </a>
                     </li>
+
                     <li>
                         <a href="{{url('/userPost')}}">
                             <i class="glyphicon glyphicon-share"></i>

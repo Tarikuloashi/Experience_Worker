@@ -59,24 +59,24 @@ class adminController extends Controller
       return redirect('/adminUserList');
     }
 
-    public function createService(){
-      return view('admins.createService');
-    }
-
-    public function storeService(Request $request){
-      DB::table('services')->insert([
-    		'serviceName'=>$request->serviceName,
-    		'servicePrice'=>$request->servicePrice,
-    		'serviceDescription'=>$request->serviceDescription,
-
-    		]);
-    	return redirect('/createService')->with('message','Service Store Successfully ');
-    }
-
-    public function manageService(){
-      $services=Service::all();
-      return view('admins.manageServices',['services'=>$services]);
-    }
+    // public function createService(){
+    //   return view('admins.createService');
+    // }
+    //
+    // public function storeService(Request $request){
+    //   DB::table('services')->insert([
+    // 		'serviceName'=>$request->serviceName,
+    // 		'servicePrice'=>$request->servicePrice,
+    // 		'serviceDescription'=>$request->serviceDescription,
+    //
+    // 		]);
+    // 	return redirect('/createService')->with('message','Service Store Successfully ');
+    // }
+    //
+    // public function manageService(){
+    //   $services=Service::all();
+    //   return view('admins.manageServices',['services'=>$services]);
+    // }
 
 
 }

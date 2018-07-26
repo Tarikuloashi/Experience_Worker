@@ -14,8 +14,9 @@ use DB;
 class userController extends Controller
 {
     public function home(){
-      $user =Sentinel::getUser();
-    	return view('users.userHome',['user'=>$user]);
+    //  $user =Sentinel::getUser();
+    //  dd($user);
+    	return view('users.userHome');
     }
     public function profile(){
 
