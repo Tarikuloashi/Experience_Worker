@@ -11,6 +11,9 @@ use App\Service;
 
 class adminController extends Controller
 {
+    public function index(){
+      return view ('admin.home.homeContent');
+    }
     public function home(){
     	return view('admins.adminHome');
     }
@@ -18,7 +21,8 @@ class adminController extends Controller
     public function showUser(){
       $role = Sentinel::findRoleById(3);
       $users = $role->users()->with('roles')->get();
-      return view('admins.adminUserList',['users' => $users]);
+      return view('admin.usersList.userList',['users' => $users]);
+      // return view('admins.adminUserList',['users' => $users]);
       // $users = Role::where('role_id', '3')
       //         ->orderBy('user_name', 'asc')
       //         ->get();
@@ -36,7 +40,8 @@ class adminController extends Controller
     public function showEngineer(){
       $role = Sentinel::findRoleById(2);
       $engineers = $role->users()->with('roles')->get();
-      return view('admins.adminEngineerList',['engineers' => $engineers]);
+      return view('admin.usersList.engineerList',['engineers' => $engineers]);
+      // return view('admins.adminEngineerList',['engineers' => $engineers]);
     }
 
     public function assignToEngineer($id){
