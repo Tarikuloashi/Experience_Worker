@@ -11,11 +11,11 @@ use App\User;
 class engineerController extends Controller
 {
     public function home(){
-    	return view('engineers.engineerHome');
+    	return view('engineer.home.homeContent');
     }
     public function profile(){
       $engineer = Sentinel::getUser();
-    	return view('engineers.engineerProfile',['engineer'=>$engineer]);
+    	return view('engineer.profile.engineerProfile',['engineer'=>$engineer]);
     }
 
     public function update_avatar(Request $request){
@@ -44,11 +44,5 @@ class engineerController extends Controller
     }
 
 
-    public function currentJob(){
-    	return view('engineers.currentJob');
-    }
-    public function history(){
-    	return view('engineers.engineerHistory');
-    }
 
 }

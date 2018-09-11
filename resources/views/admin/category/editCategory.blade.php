@@ -5,22 +5,30 @@
   <div class="row">
     <div class="col-md-8 mx-auto">
         <div class="card">
-            <form class="" action="/category/save" method="post" >
+            <form class="" action="/category/update" method="post" >
               {{csrf_field()}}
+
                 <div class="card-body mx-auto">
                     <h2 class="card-title text-center">Category Info</h2>
                     <div class="form-group row">
-                        <label for="fname" class="col-sm-3 text-right control-label col-form-label">Category Name</label>
+                        <label class="col-sm-3 text-right control-label col-form-label">Category Id</label>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" name="categoryName">
-                          <span class="text-danger">{{$errors->has('categoryName')?$errors->first('categoryName'):''}}</span>
+                          <input type="" value="{{$categoryByid->id}}"  class="form-control" name="id" disabled>
+                          <span class="text-danger" > {{$errors->has('categoryName')?$errors->first('categoryName'):''}} </span>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-sm-3 text-right control-label col-form-label">Category Name</label>
+                        <div class="col-sm-9">
+                          <input type="text" value="{{$categoryByid->categoryName}}"  class="form-control" name="categoryName">
+                          <span class="text-danger" > {{$errors->has('categoryName')?$errors->first('categoryName'):''}} </span>
                         </div>
                     </div>
 
                     <div class="form-group row">
-                        <label for="lname" class="col-sm-3 text-right control-label col-form-label">Category Description</label>
+                        <label class="col-sm-3 text-right control-label col-form-label">Category Description</label>
                         <div class="col-sm-9" id="editor" >
-                          <textarea  class="form-control" name="categoryDescription" rows="8"></textarea>
+                          <textarea  class="form-control" name="categoryDescription" rows="8">{{$categoryByid->categoryDescription}}</textarea>
                           <span class="text-danger">{{$errors->has('categoryName')?$errors->first('categoryName'):''}}</span>
                         </div>
                     </div>
@@ -46,5 +54,6 @@
 
     </div>
   </div>
+
 
 @endsection

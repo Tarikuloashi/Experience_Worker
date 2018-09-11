@@ -6,7 +6,7 @@
             <!-- ============================================================== -->
             <!-- Logo -->
             <!-- ============================================================== -->
-            <a class="navbar-brand" href="{{url('/adminHome')}}">
+            <a class="navbar-brand" href="{{url('/userHome')}}">
                 <!-- Logo icon -->
                 <b class="logo-icon p-l-10">
 

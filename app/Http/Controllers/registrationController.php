@@ -19,6 +19,7 @@ class registrationController extends Controller
 
     public function postregister(Request $request){
         //when auto activate our user
+        // return $request->all();
     	$user = Sentinel::registerAndActivate($request->all());
 
       //When need email activation

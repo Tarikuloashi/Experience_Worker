@@ -31,10 +31,11 @@
                         </a>
                     </li>
 
+
                     <li>
-                        <a href="{{url('/userPost')}}">
-                            <i class="glyphicon glyphicon-share"></i>
-                            Post Problem
+                        <a href="{{url('/requestService')}}">
+                            <i class="glyphicon glyphicon-tasks"></i>
+                            Request service
                         </a>
                     </li>
                     <li>

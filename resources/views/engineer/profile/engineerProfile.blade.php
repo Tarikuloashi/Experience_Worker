@@ -1,10 +1,7 @@
-@extends('engineers.engineerMaster')
+@extends('engineer.master')
 
-@section('title')
-	User Profile
-@endsection
+@section('mainContent')
 
-@section('content')
 
 <div class="row">
 	<div class="panel panel-default">

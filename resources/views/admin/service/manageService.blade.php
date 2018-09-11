@@ -21,27 +21,27 @@
                               <table class="table table-bordered table-hover">
                               	<thead>
                               		<tr>
-                              			<th>ID</th>
+                              			<th>Service Name</th>
                               			<th>Category Name</th>
-                              			<th>Category Description</th>
-                              			<th>Publication Status</th>
+                              			<th>Service Min Price</th>
+                              			<th>Service  Max Price</th>
                               			<th>Action</th>
                               		</tr>
                               	</thead>
                               	<tbody>
-                              		@foreach($categories as $category)
+                              		@foreach($services as $service)
                               		<tr>
-                              			<th scope="row">{{$category->id}}</th>
-                              			<td>{{$category->categoryName}}</td>
-                              			<td>{{$category->categoryDescription}}</td>
-                              			<td>{{$category->publicationStatus==1?'Published':'Unpublished'}}</td>
+                              			<th scope="row">{{$service->serviceName}}</th>
+                              			<td>{{$service->categoryName}}</td>
+                              			<td>{{$service->minPrice}}</td>
+                              			<td>{{$service->maxPrice}}</td>
                               			<td>
-                              				<a href="{{url('/category/edit/'.$category->id)}}" class="btn btn-success">
-                              					<span class="glyphicon glyphicon-edit"></span>
+                              				<a href="{{url('/category/edit/'.$service->id)}}" class="btn btn-success">
+                              					<span class="fas fa-edit"> Edit</span>
                               				</a>
 
-                              				<a href="{{url('/category/delete/'.$category->id)}}" class="btn btn-danger" onclick="return confirm('Are You Sure to delete this');">
-                              					<span class="glyphicon glyphicon-trash"></span>
+                              				<a href="{{url('/category/delete/'.$service->id)}}" class="btn btn-danger" onclick="return confirm('Are You Sure to delete this');">
+                              					<span class="fas fa-trash"> Delete</span>
                               				</a>
                               			</td>
                               		</tr>
@@ -58,6 +58,6 @@
                   </div>
                 </div>
             </div>
-        
+
 
 @endsection

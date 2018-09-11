@@ -10,7 +10,7 @@
     <meta name="author" content="">
     <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="{{asset('admin/')}}/assets/images/favicon.png">
-    <title>Admin</title>
+    <title>Engineer</title>
     <!-- Custom CSS -->
     <link href="{{asset('admin/')}}/assets/libs/flot/css/float-chart.css" rel="stylesheet">
     <!-- Custom CSS -->
@@ -41,7 +41,7 @@
         <!-- ============================================================== -->
         <!-- Topbar header - style you can find in pages.scss -->
         <!-- ============================================================== -->
-        @include('admin.includes.header')
+        @include('engineer.includes.header')
         <div class="page-wrapper">
           <div class="container-fluid">
             @yield('mainContent')
@@ -53,7 +53,7 @@
         <!-- ============================================================== -->
         <!-- Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->
-        @include('admin.includes.leftSidebar')
+        @include('engineer.includes.leftSidebar')
         <!-- ============================================================== -->
         <!-- End Left Sidebar - style you can find in sidebar.scss  -->
         <!-- ============================================================== -->

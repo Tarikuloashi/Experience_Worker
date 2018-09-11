@@ -2,5 +2,5 @@
 
 @section('mainContent')
 
-         <h1>NEW HOME</h1>
+         <h1>Admin HOME</h1>
 @endsection

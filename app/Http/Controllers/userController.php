@@ -16,7 +16,7 @@ class userController extends Controller
     public function home(){
     //  $user =Sentinel::getUser();
     //  dd($user);
-    	return view('users.userHome');
+    	return view('user.home.homeContent');
     }
     public function profile(){
 
@@ -24,7 +24,7 @@ class userController extends Controller
       // $user = Sentinel::findById($id);
       $user =Sentinel::getUser();
       // return view('users.userProfile',['user' =>$user]);
-    	 return view('users.userProfile',['user'=>$user]);
+    	 return view('user.profile.userProfile',['user'=>$user]);
     }
 
     public function update_avatar(Request $request){
@@ -53,40 +53,40 @@ class userController extends Controller
     }
 
 
-    public function post(){
-    	return view('users.userPost');
-    }
-    public function history(){
-    	return view('users.userHistory');
-    }
-
-    public function showService(){
-      $services=Service::all();
-      return view('users.showService',['services'=>$services]);
-    }
-
-    public function postRequest($id){
-      $serviceById=Service::where('id',$id)->first();
-      return view('users.postRequest',['serviceById'=>$serviceById]);
-    }
-
-    public function saveRequest(Request $request){
-      $allServiceRequest=new serviceRequest();
-      $allServiceRequest->userId=Sentinel::getUser()->id;
-      $allServiceRequest->serviceName=$request->serviceName;
-      $allServiceRequest->servicePrice=$request->servicePrice;
-      $allServiceRequest->serviceDescription=$request->serviceDescription;
-      $allServiceRequest->userDescription=$request->userDescription;
-      $allServiceRequest->lat=$request->lat;
-      $allServiceRequest->lng=$request->lng;
-      $allServiceRequest->save();
-      return redirect('users/userShowService')->with('message','Service Request Post successfully');
-        // // echo '<pre>';
-        // // print_r($user);
-        // // exit();
-        // echo $allServiceRequest;
-
-    }
+    // public function post(){
+    // 	return view('users.userPost');
+    // }
+    // public function history(){
+    // 	return view('users.userHistory');
+    // }
+    //
+    // public function showService(){
+    //   $services=Service::all();
+    //   return view('users.showService',['services'=>$services]);
+    // }
+    //
+    // public function postRequest($id){
+    //   $serviceById=Service::where('id',$id)->first();
+    //   return view('users.postRequest',['serviceById'=>$serviceById]);
+    // }
+    //
+    // public function saveRequest(Request $request){
+    //   $allServiceRequest=new serviceRequest();
+    //   $allServiceRequest->userId=Sentinel::getUser()->id;
+    //   $allServiceRequest->serviceName=$request->serviceName;
+    //   $allServiceRequest->servicePrice=$request->servicePrice;
+    //   $allServiceRequest->serviceDescription=$request->serviceDescription;
+    //   $allServiceRequest->userDescription=$request->userDescription;
+    //   $allServiceRequest->lat=$request->lat;
+    //   $allServiceRequest->lng=$request->lng;
+    //   $allServiceRequest->save();
+    //   return redirect('users/userShowService')->with('message','Service Request Post successfully');
+    //     // // echo '<pre>';
+    //     // // print_r($user);
+    //     // // exit();
+    //     // echo $allServiceRequest;
+    //
+    // }
 
 
 

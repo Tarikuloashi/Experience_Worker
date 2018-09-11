@@ -3,30 +3,20 @@
     <div class="scroll-sidebar">
         <!-- Sidebar navigation-->
         <nav class="sidebar-nav">
-            <ul id="sidebarnav" class="p-t-30">
-                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{url('/adminHome')}}" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a></li>
+          <ul id="sidebarnav" class="p-t-30">
+              <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{url('/userHome')}}" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Home</span></a></li>
 
-<!---/////////////////////////////////////// User List -------------------------->
-                <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="fas fa-users"></i><span class="hide-menu">Users</span></a>
-                    <ul aria-expanded="false" class="collapse  first-level">
-                        <li class="sidebar-item"><a href="{{url('/adminUserList')}}" class="sidebar-link"><i class="fas fa-user"></i><span class="hide-menu"> User List</span></a></li>
-                        <li class="sidebar-item"><a href="{{url('/adminEngineerList')}}" class="sidebar-link"><i class="fas fa-microchip"></i><span class="hide-menu"> Engineer List </span></a></li>
-                    </ul>
+<!---///////////////////////////////////////  Profile -------------------------->
+                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark" href="{{url('/userProfile')}}" aria-expanded="false"><i class="fas fa-users"></i><span class="hide-menu">Profile</span></a>
+
                 </li>
 
-<!---/////////////////////////////////////// CATEGORY -------------------------->
-                <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="fas fa-clipboard"></i><span class="hide-menu">Category</span></a>
-                    <ul aria-expanded="false" class="collapse  first-level">
-                        <li class="sidebar-item"><a href="{{url('/category/add')}}" class="sidebar-link"><i class="fas fa-clipboard-check"></i><span class="hide-menu"> Create Category</span></a></li>
-                        <li class="sidebar-item"><a href="{{url('/category/manage')}}" class="sidebar-link"><i class="fas fa-clipboard-list"></i><span class="hide-menu"> Manage Category </span></a></li>
-                    </ul>
-                </li>
 
 <!---/////////////////////////////////////// Service -------------------------->
-                <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="fas fa-clipboard"></i><span class="hide-menu">Service</span></a>
+                <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark"  aria-expanded="false"><i class="fas fa-clipboard"></i><span class="hide-menu">Service</span></a>
                     <ul aria-expanded="false" class="collapse  first-level">
-                        <li class="sidebar-item"><a href="{{url('/service/add')}}" class="sidebar-link"><i class="fas fa-clipboard-check"></i><span class="hide-menu"> Create Service</span></a></li>
-                        <li class="sidebar-item"><a href="{{url('/service/manage')}}" class="sidebar-link"><i class="fas fa-clipboard-list"></i><span class="hide-menu"> Manage Service </span></a></li>
+                        <li class="sidebar-item"><a href="" class="sidebar-link"><i class="fas fa-clipboard-check"></i><span class="hide-menu"> Show Service</span></a></li>
+                        <li class="sidebar-item"><a href="{{url('/requestService')}}" class="sidebar-link"><i class="fas fa-clipboard-list"></i><span class="hide-menu"> Request Service </span></a></li>
                     </ul>
                 </li>
 

@@ -11,11 +11,8 @@ use App\Service;
 
 class adminController extends Controller
 {
-    public function index(){
-      return view ('admin.home.homeContent');
-    }
     public function home(){
-    	return view('admins.adminHome');
+    	return view('admin.home.homeContent');
     }
 
     public function showUser(){
