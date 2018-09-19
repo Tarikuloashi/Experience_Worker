@@ -20,24 +20,20 @@ Route::get('/map',function(){
 
 });
 Route::group(['middleware'=>'visitors'],function(){
+    	//Route('/home','registrationController@home');
+    	//authentication
+    	Route::get('/register','registrationController@register');
+    	Route::post('/register','registrationController@postregister');
 
+    	Route::get('/login','loginController@login');
+    	Route::post('/login','loginController@postLogin');
 
+    	Route::get('/forgetPassword','forgetPasswordController@forgetPassword');
+    	Route::post('/forgetPassword','forgetPasswordController@postForgetPassword');
 
-
-	//Route('/home','registrationController@home');
-	//authentication
-	Route::get('/register','registrationController@register');
-	Route::post('/register','registrationController@postregister');
-
-	Route::get('/login','loginController@login');
-	Route::post('/login','loginController@postLogin');
-
-	Route::get('/forgetPassword','forgetPasswordController@forgetPassword');
-	Route::post('/forgetPassword','forgetPasswordController@postForgetPassword');
-
-	Route::get('/reset/{email}/{resetCode}','forgetPasswordController@resetPassword');
-	Route::post('/reset/{email}/{resetCode}','forgetPasswordController@postResetPassword');
-	Route::get('/activate/{email}/{activationCode}','activationController@activate');
+    	Route::get('/reset/{email}/{resetCode}','forgetPasswordController@resetPassword');
+    	Route::post('/reset/{email}/{resetCode}','forgetPasswordController@postResetPassword');
+    	Route::get('/activate/{email}/{activationCode}','activationController@activate');
 });
 
 
@@ -66,8 +62,11 @@ Route::group(['middleware'=>'engineer'],function(){
 	Route::post('/engineerUpdateImage','engineerController@update_avatar');
 	Route::get('/viewrequest','RequestServiceController@viewRequest');
 	Route::get('/view-Service/{id}','RequestServiceController@showService');
-
-
+	Route::get('Appointment/service/{id}','ServiceApponmentController@apponment');
+	Route::get('workHistory','engineerController@workHistory');
+	Route::get('jobDone/{id}','engineerController@jobDone');
+	Route::get('/addProfile','engineerController@addProfile');
+	Route::post('/profile/save','engineerController@saveProfile');
 
 });
 
@@ -79,17 +78,17 @@ Route::group(['middleware'=>'admin'],function(){
 	Route::get('//adminUserList/{id}','adminController@assignToEngineer');
 	Route::get('//adminEngineerList/{id}','adminController@assignToUser');
 
-	//CategoryController
-	 // Route::resource('category','CategoryController');
-    Route::get('/category/add','CategoryController@create');
-	  Route::post('/category/save','CategoryController@store');
-	  Route::get('/category/manage','CategoryController@manage');
-	  Route::get('/category/edit/{id}','CategoryController@edit');
-	  Route::post('/category/update','CategoryController@update');
-	  Route::get('/category/delete/{id}','CategoryController@destroy');
+    	//CategoryController
+    	  // Route::resource('category','CategoryController');
+        Route::get('/category/add','CategoryController@create');
+    	  Route::post('/category/save','CategoryController@store');
+    	  Route::get('/category/manage','CategoryController@manage');
+    	  Route::get('/category/edit/{id}','CategoryController@edit');
+    	  Route::post('/category/update','CategoryController@update');
+    	  Route::get('/category/delete/{id}','CategoryController@destroy');
 
   	//Service Controller
-  	   //Route::resource('service','ServiceController');
+  	    //Route::resource('service','ServiceController');
         Route::get('/service/add','ServiceController@create');
 		    Route::post('/service/save','ServiceController@store');
     		Route::get('/service/manage','ServiceController@manage');

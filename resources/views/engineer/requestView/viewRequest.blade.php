@@ -1,4 +1,6 @@
+@extends('engineer.master')
 
+@section('mainContent')
 
 <!DOCTYPE html>
 
@@ -37,7 +39,7 @@
 	      lat: value.lat,
 	      lng: value.long,
 	      title: value.title,
-				url:"view-Service//"+value.id,
+				url:"view-Service/"+value.id,
 
 	      click: function(e) {
 	        // alert('This is '+value.id+',  from Bangladesh.');
@@ -48,3 +50,5 @@
   </script>
 </body>
 </html>
+
+@endsection

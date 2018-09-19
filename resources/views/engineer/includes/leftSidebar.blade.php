@@ -7,18 +7,25 @@
                 <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{url('/engineerHome')}}" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Home</span></a></li>
 
 <!---///////////////////////////////////////  Profile -------------------------->
-                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark" href="{{url('/engineerProfile')}}" aria-expanded="false"><i class="fas fa-users"></i><span class="hide-menu">Profile</span></a>
 
-                </li>
+
+                      <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark" href="{{url('/engineerProfile')}}" aria-expanded="false"><i class="fas fa-users"></i><span class="hide-menu">Profile</span></a></li>
+                    
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark" href="{{url('/addProfile')}}" aria-expanded="false"><i class="fas fa-users"></i><span class="hide-menu">Add Profile</span></a></li>
+
+
 
 
 <!---/////////////////////////////////////// Service -------------------------->
-                <!-- <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="fas fa-clipboard"></i><span class="hide-menu">Service</span></a>
+                <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="fas fa-clipboard"></i><span class="hide-menu">Service</span></a>
                     <ul aria-expanded="false" class="collapse  first-level">
-                        <li class="sidebar-item"><a href="" class="sidebar-link"><i class="fas fa-clipboard-check"></i><span class="hide-menu"> Show Service</span></a></li>
-                        <li class="sidebar-item"><a href="{{url('/requestService')}}" class="sidebar-link"><i class="fas fa-clipboard-list"></i><span class="hide-menu"> Request Service </span></a></li>
-                    </ul>
-                </li> -->
+                        <li class="sidebar-item"><a href="{{url('/viewrequest')}}" class="sidebar-link"><i class="fas fa-clipboard-check"></i><span class="hide-menu"> View Service</span></a></li>
+                        </ul>
+                </li>
+
+                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark" href="{{url('/workHistory')}}" aria-expanded="false"><i class="fas fa-users"></i><span class="hide-menu">My Work History</span></a>
+
+                </li>
 
 
                 <!-- <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="charts.html" aria-expanded="false"><i class="mdi mdi-chart-bar"></i><span class="hide-menu">Charts</span></a></li>

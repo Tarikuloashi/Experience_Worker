@@ -7,6 +7,14 @@ use Sentinel;
 use Image;
 use File;
 use App\User;
+use DB;
+use App\Service;
+use App\Category;
+use App\RequestService;
+use App\ServiceLocation;
+use App\serviceApponment;
+use App\EngineersProfile;
+
 
 class engineerController extends Controller
 {
@@ -42,6 +50,56 @@ class engineerController extends Controller
       //  return view('users.userProfile', array('user' => Sentinel::getUser()));
       return redirect('/engineerProfile');
     }
+
+    public function workHistory(){
+      $workHistory=DB::table('service_apponments')
+
+                    ->join('request_services','service_apponments.serviceid','=','request_services.id')
+                    ->join('categories','request_services.categoryId','=','categories.id')
+                    ->join('services','request_services.serviceId','=','services.id')
+                    ->join('users','request_services.userId','=','users.id')
+                    ->select('request_services.*','categories.*','services.*','users.*','service_apponments.*')
+                    ->where('service_apponments.engineerid',Sentinel::getUser()->id)
+                    ->first();
+                  //  dd($workHistory);
+                return view('engineer.requestView.workHistory',compact('workHistory'));
+
+
+    }
+
+    public function jobDone($id){
+      $jobDone=serviceApponment::where('id',$id)->first();
+      $jobDone->jobstatus='yes';
+      $jobDone->save();
+      return redirect()->back()->with('message','Your Job is Done');
+    }
+
+    public function addProfile(){
+      return view('engineer.profile.addProfile');
+    }
+    public function saveProfile(Request $request){
+
+    	$profile=new EngineersProfile();
+    	$profile->description=$request->description;
+    	$profile->skills=$request->skills;
+      $profile->status=1;
+    	$profile->save();
+    	return redirect('engineer.profile.engineerProfile')->with('message','Profile create successful');
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

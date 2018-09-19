@@ -9,6 +9,8 @@ use App\RequestService;
 use Sentinel;
 use DB;
 use App\ServiceLocation;
+use App\serviceApponment;
+
 
 
 class RequestServiceController extends Controller
@@ -72,8 +74,32 @@ return view('user.service.postLocation',compact('data','service'))->with('messag
  }
 
  public function showService($id){
+   $requestServiceById=DB::table('request_services')
 
-  return view('engineer.requestView.viewRequest',compact('locations'));
+                 ->join('service_locations','request_services.id','=','service_locations.serviceId')
+                 ->join('categories','request_services.categoryId','=','categories.id')
+                 ->join('services','request_services.serviceId','=','services.id')
+                 ->join('users','request_services.userId','=','users.id')
+                 ->select('request_services.*','service_locations.*','categories.*','services.*','users.*')
+                 ->where('service_locations.publicationStatus',1)
+                 ->where('request_services.id',$id)
+                 ->first();
+
+
+                 $engineer=serviceApponment::where('engineerid',Sentinel::getUser()->id)
+                 ->first();
+
+                 if(!empty($engineer)){
+                   return view('engineer.requestView.viewSingleRequest',compact('requestServiceById','engineer'));
+                 }
+                 else{
+                   $engineer=null;
+                   return view('engineer.requestView.viewSingleRequest',compact('requestServiceById','engineer'));
+                 
+                 }
+
+                 // dd($requestServiceById);
+
 }
 
 }
