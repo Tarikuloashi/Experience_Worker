@@ -10,7 +10,7 @@
 
 
                       <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark" href="{{url('/engineerProfile')}}" aria-expanded="false"><i class="fas fa-users"></i><span class="hide-menu">Profile</span></a></li>
-                    
+
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark" href="{{url('/addProfile')}}" aria-expanded="false"><i class="fas fa-users"></i><span class="hide-menu">Add Profile</span></a></li>
 
 
@@ -18,7 +18,7 @@
 
 <!---/////////////////////////////////////// Service -------------------------->
                 <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="fas fa-clipboard"></i><span class="hide-menu">Service</span></a>
-                    <ul aria-expanded="false" class="collapse  first-level">
+                    <ul aria-expanded="false" class="collapse first-level">
                         <li class="sidebar-item"><a href="{{url('/viewrequest')}}" class="sidebar-link"><i class="fas fa-clipboard-check"></i><span class="hide-menu"> View Service</span></a></li>
                         </ul>
                 </li>

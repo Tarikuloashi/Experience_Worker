@@ -1,11 +1,11 @@
 @extends('user.master')
 
 @section('mainContent')
-
+<br>
   <div class="row">
       <div class="col-md-8 m-auto">
           <div class="card">
-              <form  action="/postRequestService" method="POST">
+              <form  action="/postRequestService" method="POST" class="shadow-lg">
                 {{csrf_field()}}
                   <div class="card-body">
                       <h4 class="card-title">Request Service</h4>
@@ -54,8 +54,9 @@
           </div>
 
       </div>
-  </div>
 
+  </div>
+<br><br><br><br><br>
 
 
 @endsection

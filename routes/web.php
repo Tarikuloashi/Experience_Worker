@@ -11,9 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/','frontEndController@home');
+Route::get('/about','frontEndController@about');
 
 Route::get('/map',function(){
 	return view("user.service.postLocation");

@@ -14,7 +14,7 @@ class registrationController extends Controller
         return view ('laouts.home');
     }
     public function register(){
-    	return view ('authentications.register');
+    	return view ('frontEnd.authentications.register');
     }
 
     public function postregister(Request $request){

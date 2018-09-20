@@ -11,7 +11,7 @@ use Cartalyst\Sentinel\Checkpoints\NotActivatedException;
 class loginController extends Controller
 {
     public function login(){
-    	return view ('authentications.login');
+    	return view ('frontEnd.authentications.login');
     }
 
     public function postLogin(Request $request){
