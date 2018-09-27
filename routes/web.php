@@ -17,9 +17,11 @@
 
 Route::get('/','frontEndController@home');
 Route::get('/about','frontEndController@about');
+Route::get('/allServices','frontEndController@allServices');
+
 
 Route::get('/map',function(){
-	return view("user.service.postLocation");
+	return view("users.testMap");
 
 });
 Route::group(['middleware'=>'visitors'],function(){
@@ -50,6 +52,9 @@ Route::group(['middleware'=>'user'],function(){
 	// Route::get('/userShowService','userController@showService');
 	// Route::get('/postRequest/{id}','userController@postRequest');
 	// Route::post('/saveRequest','userController@saveRequest');
+
+  Route::get('/user/showService','userController@showService');
+  Route::get('/user/serviceDetails/{id}','userController@serviceDetails');
 
   Route::get('/requestService','RequestServiceController@index');
   Route::post('/postRequestService','RequestServiceController@storeRequest');

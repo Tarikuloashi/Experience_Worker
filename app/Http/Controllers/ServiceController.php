@@ -15,9 +15,10 @@ class ServiceController extends Controller
     }
 
     public function store(Request $request){
+      
             $serviceImage=$request->file('serviceImage');
           	$name=$serviceImage->getClientOriginalName();
-          	$uploadPath='productImage/';
+          	$uploadPath='serviceImage/';
           	$serviceImage->move($uploadPath,$name);
           	$imageUrl=$uploadPath.$name;
           	$this->saveServiceInfo($request,$imageUrl);
@@ -30,8 +31,7 @@ class ServiceController extends Controller
             	$service->minPrice=$request->minPrice;
             	$service->maxPrice=$request->maxPrice;
             	$service->serviceDescription=$request->serviceDescription;
-            	$service->serviceImage=$request->serviceImage;
-
+            	$service->serviceImage=$imageUrl;
       	      $service->save();
 
     }
@@ -43,23 +43,5 @@ class ServiceController extends Controller
 
         return view ('admin.service.manageService',['services'=>$services]);
     }
-    public function show($id)
-    {
-        //
-    }
 
-    public function edit($id)
-    {
-        //
-    }
-
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    public function destroy($id)
-    {
-        //
-    }
 }

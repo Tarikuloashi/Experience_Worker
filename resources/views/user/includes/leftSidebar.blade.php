@@ -15,7 +15,7 @@
 <!---/////////////////////////////////////// Service -------------------------->
                 <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="fas fa-clipboard"></i><span class="hide-menu">Service</span></a>
                     <ul aria-expanded="false" class="collapse  first-level">
-                        <li class="sidebar-item"><a href="{{url('/service')}}" class="sidebar-link" ><i class="fas fa-clipboard-check"></i><span class="hide-menu"> Show Service</span></a></li>
+                        <li class="sidebar-item"><a href="{{url('/user/showService')}}" class="sidebar-link" ><i class="fas fa-clipboard-check"></i><span class="hide-menu"> Show Service</span></a></li>
                         <li class="sidebar-item"><a href="{{url('/requestService')}}" class="sidebar-link"><i class="fas fa-clipboard-list"></i><span class="hide-menu"> Request Service </span></a></li>
                     </ul>
                 </li>

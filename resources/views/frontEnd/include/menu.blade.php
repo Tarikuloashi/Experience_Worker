@@ -22,15 +22,6 @@
           <a href="services.html">services</a>
         </li>
         <li>
-          <a href="projects.html">Projects</a>
-        </li>
-        <li>
-          <a href="plan.html">plans</a>
-        </li>
-        <li>
-          <a href="contact.html">contact us</a>
-        </li>
-        <li>
           <a href="{{url('/register')}}">Register</a>
         </li>
         <li>

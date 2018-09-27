@@ -26,13 +26,10 @@
     <h1>{{$data->serviceName}}</h1>
 </div>
 
-
-
-
-
-
 </div>
-
+<div class="form-group">
+   <input type="hidden" class="form-control input-sm" value="{{$service->id}}" name="serviceId">
+ </div>
 
 
 @endsection

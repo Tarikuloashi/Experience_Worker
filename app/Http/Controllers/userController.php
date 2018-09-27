@@ -7,9 +7,10 @@ use Sentinel;
 use Image;
 use File;
 use App\User;
-use App\Service;
 use App\serviceRequest;
 use DB;
+use App\Service;
+use App\Category;
 
 class userController extends Controller
 {
@@ -52,6 +53,15 @@ class userController extends Controller
       return redirect('/userProfile');
     }
 
+    public function showService(){
+      $services= Service::all();
+      return view('user.service.showService',['services'=>$services]);
+    }
+
+    public function serviceDetails($id){
+        $serviceById=Service::where('id',$id)->first();
+    	return view('user.service.serviceDetails',['serviceById'=>$serviceById]);
+    }
 
     // public function post(){
     // 	return view('users.userPost');

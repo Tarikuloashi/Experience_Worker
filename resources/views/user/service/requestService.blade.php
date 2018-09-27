@@ -7,8 +7,9 @@
           <div class="card">
               <form  action="/postRequestService" method="POST" class="shadow-lg">
                 {{csrf_field()}}
+                <div class="card-header text-center"><h3 >Request Service</h3></div>
                   <div class="card-body">
-                      <h4 class="card-title">Request Service</h4>
+
                       <div class="form-group row">
                           <label class="col-sm-3 text-right control-label col-form-label">Service Request Title</label>
                           <div class="col-sm-9">
@@ -46,8 +47,9 @@
                       </div>
                   </div>
                   <div class="form-group row">
-                      <div class="col-sm-9">
-                          <input type="submit" value="Submit" class="btn btn-success pull-right">
+
+                      <div class="col-sm-12 text-center">
+                          <input type="submit" value="Submit" class=" btn btn-success btn-lg pl-5 pr-5">
                       </div>
                   </div>
               </form>

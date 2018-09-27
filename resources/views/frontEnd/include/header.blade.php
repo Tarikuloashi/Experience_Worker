@@ -2,8 +2,8 @@
   <div class="logo-nav-left">
     <h1>
       <a href="index.html">
-        <span class="fa fa-home"></span>a2z
-        <span class="logo-title">home services</span>
+        <span class="fa fa-home"></span>
+        <span class="logo-title">Online Service Provider</span>
       </a>
     </h1>
   </div>
@@ -13,14 +13,11 @@
       <h3>contact us</h3>
     </div>
     <ul>
-      <li>
-        <span class="fa fa-envelope" aria-hidden="true"></span>
-        <a href="mailto:info@example.com">a2zservices.com</a>
-      </li>
+
       <li>
         <span class="fa fa-phone" aria-hidden="true"></span>+1234 567 892</li>
       <li>
-        <span class="fa fa-mobile" aria-hidden="true"></span>+12 234 5678
+        <span class="fa fa-mobile" aria-hidden="true"></span>+8801751693464
       </li>
     </ul>
     <div class="clearfix"> </div>

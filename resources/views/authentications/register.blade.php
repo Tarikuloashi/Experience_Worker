@@ -1,59 +1,52 @@
-@extends('master')
+@extends('authentications.master')
 
 @section('content')
+		<div class="agileits">
+			<div class="w3-agileits-info">
+
+				<form class="form animate-form" id="form1" action="/register" method="POST">
+					{{csrf_field()}}
+					<p class="w3agileits">SignUp Here</p>
+
+					<div class="form-group has-feedback wthree">
+						<label class="control-label sr-only" for="email">Email address</label>
+						<input class="form-control" id="email" name="email" placeholder="example@example.com" type="email" required>
+						<span class='glyphicon glyphicon-ok form-control-feedback'></span>
+					</div>
+
+					<div class="form-group has-feedback w3ls">
+						<label class="control-label sr-only" for="username">User Name</label>
+						<input class="form-control" id="username" name="user_name" placeholder="User Name" type="text" required>
+						<span class="glyphicon glyphicon-ok form-control-feedback"></span>
+					</div>
+
+					<div class="form-group has-feedback w3ls">
+						<label class="control-label sr-only" for="mobilenumber">Mobile Number</label>
+						<input class="form-control" id="phone" name="phone" placeholder="Mobile Number" type="number" required>
+						<span class="glyphicon glyphicon-ok form-control-feedback"></span>
+					</div>
+
+					<div class="form-group has-feedback agile">
+						<label class="control-label sr-only" for="password">Password</label>
+						<input class="form-control w3l" id="password" name="password" placeholder="Password" type="password">
+						<span class="glyphicon glyphicon-ok form-control-feedback"></span>
+					</div>
+
+					<div class="form-group has-feedback agile">
+						<label class="control-label sr-only" for="password">Confirm Password</label>
+						<input class="form-control w3l" id="password" name="password" placeholder="Confirm Password" type="password">
+						<span class="glyphicon glyphicon-ok form-control-feedback"></span>
+					</div>
 
 
-	<div class="container ">
-        <div id="signupbox" style="margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-            <div class="panel panel-dark">
-                <div class="panel-heading bg-primary">
-                    <div class="panel-title">Sign Up</div>
-                </div>
-               	<div class="panel-body bg-info">
+					<div class='submit w3-agile'>
+						<input class='btn btn-lg' type='submit' value="Register">
+					</div>
+					<br>
+					<span>Already have an account ?<a href="{{url('/login')}}"> Login</a> </span>
+				</form>
+			</div>
+		</div>
 
-					<form action="/register" method="POST">
-						{{csrf_field()}}
-						<div class="form-group">
-							<div class="input-group">
-								<span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-								<input type="email" name="email" class="form-control" placeholder="example@example.com" required>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<div class="input-group">
-								<span class="input-group-addon"><i class="fa fa-user"></i></span>
-								<input type="text" name="user_name" class="form-control" placeholder="User Name" required>
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="input-group">
-								<span class="input-group-addon"><i class="fa fa-user"></i></span>
-								<input type="number" name="phone" class="form-control" placeholder="Mobile Number" required>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<div class="input-group">
-								<span class="input-group-addon"><i class="fa fa-lock"></i></span>
-								<input type="password" name="password" class="form-control" placeholder="Password" required>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<div class="input-group">
-								<span class="input-group-addon"><i class="fa fa-lock"></i></span>
-								<input type="password" name="password_confirmation" class="form-control" placeholder="Confirm Password" required>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<input type="submit" value="Register" class="btn btn-success pull-right">
-						</div>
-					</form>
-				</div>
-            </div>
-         </div>
-    </div>
 
 @endsection

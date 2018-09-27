@@ -147,7 +147,7 @@ input[type="submit"],
     margin: 1em 0 0;
     padding: 10px 20px 10px;
     text-align: center;
-    border: 6px inset #febf00;
+
     position: relative;
 }
 
@@ -180,7 +180,7 @@ span.logo-title {
     display: block;
     letter-spacing: 2px;
     font-size: 13px;
-    margin-top: 5px;
+    margin-top: 15px;
     font-weight: 600;
     color: #031f9a;
     text-transform: uppercase;
@@ -197,7 +197,7 @@ span.sub-title {
 }
 
 .logo-nav-left1 ul li a {
-    font-size: 14px;
+    font-size: 20px;
     color: #fff;
     text-decoration: none;
     font-family: 'Source Sans Pro', sans-serif;
@@ -210,7 +210,7 @@ span.sub-title {
 }
 .navbar-nav > li {
     float: left;
-    width: 11.85%;
+    width: 20%;
     text-align: center;
 }
 .navbar-default .navbar-nav>li>a {
@@ -295,7 +295,7 @@ li.active a {
 ul.nav.navbar-nav {
     background: #031f9a;
     float: none;
-    border-left: 1px solid #031f9a;
+
 }
 
 li.dropdown-menu {
@@ -1540,7 +1540,7 @@ h4.form-con-txt {
 }
 
 
-/* chrome bug fix causing overlay-mask to not appear 
+/* chrome bug fix causing overlay-mask to not appear
 @media screen and (-webkit-min-device-pixel-ratio:0) {
 #cm-overlay-mask
 {
@@ -1548,7 +1548,7 @@ h4.form-con-txt {
 }
 #cm-overlay-mask::-webkit-scrollbar
 {
-    width:0px; 
+    width:0px;
 }}*/
 
 #cm-wrap {
@@ -1837,7 +1837,7 @@ p.w3l {
 }
 
 
-/* //client / 
+/* //client /
 /*-- stats --*/
 
 .agileits_w3layouts-stats-grids:nth-child(1) {
@@ -4528,7 +4528,7 @@ p.privacy-para {
 	.search_form input[type='search'] {
         width: 143px;
     }
-	
+
 }
 
 /* -- //Responsive code -- */

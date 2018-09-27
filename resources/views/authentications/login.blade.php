@@ -1,54 +1,51 @@
-@extends('master')
+@extends('authentications.master')
 
 @section('content')
 
+<div class="agileits">
+	<div class="w3-agileits-info">
 
-	<div class="container ">
-        <div id="signupbox" style="margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-            <div class="panel panel-dark">
-                <div class="panel-heading bg-primary">
-                    <div class="panel-title">Login Form</div>
-                </div>
-               	<div class="panel-body bg-info">
+		<form class="form animate-form" id="form1" action="/login" method="POST">
+			{{csrf_field()}}
+			<p class="w3agileits">Login Here</p>
 
-					<form action="/login" method="POST">
-						{{csrf_field()}}
-						<!-- ********************************* Message -->
-						@if(session('error'))
-							<div class="alert alert-danger bg-success" >
-								{{session('error')}}
-							</div>
-						@endif
+				<!-- ********************************* Message -->
+				@if(session('error'))
+					<div class="alert alert-danger bg-success" >
+						{{session('error')}}
+					</div>
+				@endif
 
-						@if(session('success'))
-							<div class="alert alert-success bg-success" >
-								{{session('success')}}
-							</div>
-						@endif
-						<!-- ********************************* Message -->
-						<div class="form-group">
-							<div class="input-group">
-								<span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-								<input type="email" name="email" class="form-control" placeholder="example@example.com" required>
-							</div>
-						</div>
+				@if(session('success'))
+					<div class="alert alert-success bg-success" >
+						{{session('success')}}
+					</div>
+				@endif
+				<!-- ********************************* Message -->
 
-						<div class="form-group">
-							<div class="input-group">
-								<span class="input-group-addon"><i class="fa fa-lock"></i></span>
-								<input type="password" name="password" class="form-control" placeholder="Password" required>
-							</div>
-						</div>
+			<div class="form-group has-feedback wthree">
+				<label class="control-label sr-only" for="email">Email address</label>
+				<input class="form-control" id="email" name="email" placeholder="example@example.com" type="email" required>
+				<span class='glyphicon glyphicon-ok form-control-feedback'></span>
+			</div>
 
-						<a href="/forgetPassword" class="bg-danger">Forget My Password</a>
+			<div class="form-group has-feedback agile">
+				<label class="control-label sr-only" for="password">Password</label>
+				<input class="form-control w3l" id="password" name="password" placeholder="Password" type="password">
+				<span class="glyphicon glyphicon-ok form-control-feedback"></span>
+			</div>
 
-						<div class="form-group">
-							<input type="submit" value="Sign In" class="btn btn-success pull-right">
-						</div>
-					</form>
-				</div>
-            </div>
-         </div>
-    </div>
+			<div class='submit w3-agile'>
+				<input class='btn btn-lg' type='submit' value="Sign In">
+			</div>
+			<br>
+			<span>Create Account<a href="{{url('/register')}}"> Register</a> </span>
+			<br>
+			<span><a href="/forgetPassword" >Forget My Password</a> </span>
+		</form>
+	</div>
+</div>
+
+
 
 @endsection
