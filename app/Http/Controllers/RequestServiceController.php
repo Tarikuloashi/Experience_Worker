@@ -23,29 +23,23 @@ class RequestServiceController extends Controller
 
 
   public function storeRequest(Request $request){
+      //return $request->all();
+      $service = new RequestService();
+      $service->title = $request->title;
+      $service->userId = Sentinel::getUser()->id;
+      $service->categoryId = $request->category;
+      $service->serviceId = $request->service;
+      $service->description = $request->description;
+      $service->save();
 
-//return $request->all();
+      $data=DB::table('request_services')
+                    ->join('categories','request_services.categoryId','=','categories.id')
+                    ->join('services','request_services.serviceId','=','services.id')
+                    ->select('request_services.*','services.*','categories.*')
+                    ->where('request_services.id',$service->id)
+                    ->first();
 
-$service = new RequestService();
-$service->title = $request->title;
-$service->userId = Sentinel::getUser()->id;
-$service->categoryId = $request->category;
-$service->serviceId = $request->service;
-$service->description = $request->description;
-$service->save();
-
-
-$data=DB::table('request_services')
-              ->join('categories','request_services.categoryId','=','categories.id')
-              ->join('services','request_services.serviceId','=','services.id')
-              ->select('request_services.*','services.*','categories.*')
-              ->where('request_services.id',$service->id)
-              ->first();
-
-
-
-
-return view('user.service.postLocation',compact('data','service'))->with('message','Service Request Successfully Post,Please Confirm');
+      return view('user.service.postLocation',compact('data','service'))->with('message','Service Request Successfully Post,Please Confirm');
 
 
   }
@@ -57,7 +51,7 @@ return view('user.service.postLocation',compact('data','service'))->with('messag
     $serviceLocation->serviceId = $request->serviceId;
     $serviceLocation->publicationStatus = 1;
     $serviceLocation->save();
-    return redirect('/userHome');
+    return redirect('/user/workHistory');
   }
 
   public function viewRequest(){
@@ -95,7 +89,7 @@ return view('user.service.postLocation',compact('data','service'))->with('messag
                  else{
                    $engineer=null;
                    return view('engineer.requestView.viewSingleRequest',compact('requestServiceById','engineer'));
-                 
+
                  }
 
                  // dd($requestServiceById);

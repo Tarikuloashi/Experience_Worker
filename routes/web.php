@@ -59,6 +59,7 @@ Route::group(['middleware'=>'user'],function(){
   Route::get('/requestService','RequestServiceController@index');
   Route::post('/postRequestService','RequestServiceController@storeRequest');
   Route::post('/RequestService/Location','RequestServiceController@storeLoction');
+	Route::get('/user/workHistory','userController@workHistory');
 
 
 });

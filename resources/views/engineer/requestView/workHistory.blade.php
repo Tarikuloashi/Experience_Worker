@@ -4,45 +4,35 @@
 
 
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12 ">
 
-          <div class="card">
+          <div class="card ">
             <div class="card-body">
-              <h5 class="card-title">Work History</h5>
+              <h2 class="card-title text-center border-bottom">Work History</h2>
                 <div class="table-responsive">
                   <div id="zero_config_wrapper" class="dataTables_wrapper container-fluid dt-bootstrap4">
-                    <div class="row">
-                      <div class="col-sm-12 col-md-6">
-                        <div class="dataTables_length" id="zero_config_length">
-                          <label>Show <select name="zero_config_length" aria-controls="zero_config" class="form-control form-control-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div></div>
-                          <div class="col-sm-12 col-md-6">
-                            <div id="zero_config_filter" class="dataTables_filter"><label>Search:<input type="search" class="form-control form-control-sm" placeholder="" aria-controls="zero_config"></label></div></div></div><div class="row"><div class="col-sm-12">
 
-                                <table class="table table-striped">
-                        					<tr>
-                        						<th>ID</th>
-                        						<th>title</th>
-                        						<th>User Description</th>
-                        						<th>Category Name</th>
-                        						<th>User Name</th>
-                        						<th>User Email</th>
-                        						<th>User Phone</th>
+                            <div class="row">
+                              <div class="col-md-8 mx-auto">
 
-
-                        						<th>Job Status</th>
-
+                                <table class="table table-hover table-info">
+                                  <thead>
+                        					<tr class="font-weight-bold">
+                        						<th class="font-weight-bold">title</th>
+                        						<th class="font-weight-bold">Category Name</th>
+                        						<th class="font-weight-bold">User Name</th>
+                        						<th class="font-weight-bold">View Details</th>
+                        						<th class="font-weight-bold">Job Status</th>
 
                         					</tr>
-
-
+                                </thead>
+                                <tbody>
+                                  @forelse($workHistorys as $workHistory)
                         						<tr>
-                        								<td>{{$workHistory->id}}</td>
                         								<td>{{$workHistory->title}}</td>
-                        								<td>{{$workHistory->description}}</td>
                         								<td>{{$workHistory->categoryName}}</td>
                         								<td>{{$workHistory->user_name}}</td>
-                        								<td>{{$workHistory->email}}</td>
-                        								<td>{{$workHistory->phone}}</td>
+                        								<td><a class="btn btn-dark text-light" data-toggle="modal" data-target="#mymodal{{$workHistory->id}}">View</a></td>
                         								<td>
                                             @if($workHistory->jobstatus=='no')<a href="{{url('/jobDone/'.$workHistory->id)}}"class="btn btn-success">Done</a>
                                             @else
@@ -50,18 +40,104 @@
                                             @endif
                         								</td>
                         						</tr>
-
+                                  @empty
+                                  <tr>
+                                    <td colspan="9">You have no service</td>
+                                  </tr>
+                                </tbody>
+                                  @endforelse
                         				</table>
                               </div>
                             </div>
-                                <div class="row"><div class="col-sm-12 col-md-5"><div class="dataTables_info" id="zero_config_info" role="status" aria-live="polite">Showing 1 to 10 of 57 entries</div></div><div class="col-sm-12 col-md-7"><div class="dataTables_paginate paging_simple_numbers" id="zero_config_paginate"><ul class="pagination"><li class="paginate_button page-item previous disabled" id="zero_config_previous"><a href="#" aria-controls="zero_config" data-dt-idx="0" tabindex="0" class="page-link">Previous</a></li><li class="paginate_button page-item active"><a href="#" aria-controls="zero_config" data-dt-idx="1" tabindex="0" class="page-link">1</a></li><li class="paginate_button page-item "><a href="#" aria-controls="zero_config" data-dt-idx="2" tabindex="0" class="page-link">2</a></li><li class="paginate_button page-item "><a href="#" aria-controls="zero_config" data-dt-idx="3" tabindex="0" class="page-link">3</a></li><li class="paginate_button page-item "><a href="#" aria-controls="zero_config" data-dt-idx="4" tabindex="0" class="page-link">4</a></li><li class="paginate_button page-item "><a href="#" aria-controls="zero_config" data-dt-idx="5" tabindex="0" class="page-link">5</a></li><li class="paginate_button page-item "><a href="#" aria-controls="zero_config" data-dt-idx="6" tabindex="0" class="page-link">6</a></li><li class="paginate_button page-item next" id="zero_config_next"><a href="#" aria-controls="zero_config" data-dt-idx="7" tabindex="0" class="page-link">Next</a></li></ul></div></div></div></div>
+                                </div>
                             </div>
 
                         </div>
                     </div>
                   </div>
+                  <br><br><br>
                 </div>
 
 
+                @foreach ($workHistorys as $workHistory)
+                    <div class="modal " id="mymodal{{$workHistory->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                      <div class="modal-dialog modal-lg" role="document" >
+                        <div class="modal-content">
+                          <div class="modal-header ">
+                            <h4 class="modal-title mx-auto">Service Request Information</h4>
+                            <span class="float-r bg-success p-2 text-light">Job ID:<span class="font-weight-bold">35653{{$workHistory->id}}</span></span>
+                          </div>
+                          <div class="modal-body">
+
+                            <div class="row">
+                              <div class="col-md-4">
+                                    <div class="pt-3 bg-light border-bottom border-dark">
+                                        <div class="comment-text w-100">
+                                            <h4 class="text-primary font-weight-bold">Request Title</h4>
+                                            <h5 class="d-block">  {{$workHistory->title}}</h5>
+                                        </div>
+                                    </div>
+
+                                    <div class="pt-3 bg-light border-bottom border-dark">
+                                        <div class="comment-text w-100">
+                                            <h4 class="text-primary font-weight-bold">Request Description:</h4>
+                                            <h5 class="d-block">{{$workHistory->description}}</h5>
+                                        </div>
+                                    </div>
+                              </div>
+                              <div class="col-md-4">
+
+                                    <div class="pt-3 bg-light border-bottom border-dark">
+                                        <div class="comment-text w-100">
+                                            <h4 class="text-primary font-weight-bold">User Name:</h4>
+                                            <h5 class="d-block">{{$workHistory->user_name}}</h5>
+                                        </div>
+                                    </div>
+
+                                    <div class="pt-3 bg-light border-bottom border-dark">
+                                        <div class="comment-text w-100">
+                                            <h4 class="text-primary font-weight-bold">User Email:</h4>
+                                            <h5 class="d-block">{{$workHistory->email}}</h5>
+                                        </div>
+                                    </div>
+
+                                    <div class="pt-3 bg-light border-bottom border-dark">
+                                        <div class="comment-text w-100">
+                                            <h4 class="text-primary font-weight-bold">User Email:</h4>
+                                            <h5 class="d-block">{{$workHistory->phone}}</h5>
+                                        </div>
+                                    </div>
+
+
+                              </div>
+                              <div class="col-md-4">
+                                <div class="pt-3 bg-light border-bottom border-dark">
+                                    <div class="comment-text w-100">
+                                        <h4 class="text-primary font-weight-bold">Service Name:</h4>
+                                        <h5 class="d-block">{{$workHistory->serviceName}}</h5>
+                                    </div>
+                                </div>
+                                <div class="pt-3 bg-light border-bottom border-dark">
+                                    <div class="comment-text w-100">
+                                        <h4 class="text-primary font-weight-bold">Service Description:</h4>
+                                        <h5 class="d-block">{{$workHistory->serviceDescription}}</h5>
+                                    </div>
+                                </div>
+                              </div>
+                            </div>
+
+
+
+
+
+
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                @endforeach
 
 @endsection

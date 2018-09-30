@@ -19,7 +19,10 @@
                         <li class="sidebar-item"><a href="{{url('/requestService')}}" class="sidebar-link"><i class="fas fa-clipboard-list"></i><span class="hide-menu"> Request Service </span></a></li>
                     </ul>
                 </li>
+<!---///////////////////////////////////////  Profile -------------------------->
+                <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark" href="{{url('/user/workHistory')}}" aria-expanded="false"><i class="fas fa-users"></i><span class="hide-menu">Work History</span></a>
 
+                                </li>
 
                 <!-- <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="charts.html" aria-expanded="false"><i class="mdi mdi-chart-bar"></i><span class="hide-menu">Charts</span></a></li>
 

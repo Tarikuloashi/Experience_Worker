@@ -11,7 +11,7 @@
 
                       <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark" href="{{url('/engineerProfile')}}" aria-expanded="false"><i class="fas fa-users"></i><span class="hide-menu">Profile</span></a></li>
 
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark" href="{{url('/addProfile')}}" aria-expanded="false"><i class="fas fa-users"></i><span class="hide-menu">Add Profile</span></a></li>
+                        <!-- <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark" href="{{url('/addProfile')}}" aria-expanded="false"><i class="fas fa-users"></i><span class="hide-menu">Add Profile</span></a></li> -->
 
 
 

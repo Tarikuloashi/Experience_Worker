@@ -52,7 +52,7 @@ class engineerController extends Controller
     }
 
     public function workHistory(){
-      $workHistory=DB::table('service_apponments')
+      $workHistorys=DB::table('service_apponments')
 
                     ->join('request_services','service_apponments.serviceid','=','request_services.id')
                     ->join('categories','request_services.categoryId','=','categories.id')
@@ -60,9 +60,9 @@ class engineerController extends Controller
                     ->join('users','request_services.userId','=','users.id')
                     ->select('request_services.*','categories.*','services.*','users.*','service_apponments.*')
                     ->where('service_apponments.engineerid',Sentinel::getUser()->id)
-                    ->first();
+                    ->get();
                   //  dd($workHistory);
-                return view('engineer.requestView.workHistory',compact('workHistory'));
+                return view('engineer.requestView.workHistory',compact('workHistorys'));
 
 
     }

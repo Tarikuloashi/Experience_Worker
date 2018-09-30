@@ -99,11 +99,13 @@
                         <div id="map"></div>
                     @if($engineer!=null)
                     @if($engineer->jobstatus=='yes')
+                    <a href="{{url('Appointment/service/'.$requestServiceById->serviceId)}}"class="btn btn-success">Accept Request</a>
+
                     @else
                     <h1>You already assign anothor work</h1>
                     @endif
                     @else
-                    <a href="{{url('Appointment/service/'.$requestServiceById->serviceId)}}"class="btn btn-success">Accept1 Request</a>
+                    <a href="{{url('Appointment/service/'.$requestServiceById->serviceId)}}"class="btn btn-success">Accept Request</a>
 
                     @endif
 
