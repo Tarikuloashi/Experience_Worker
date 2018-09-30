@@ -64,19 +64,31 @@ class userController extends Controller
     }
 
     public function workHistory(){
-      $workHistorys=DB::table('service_locations')
+      $workHistoryAccepted=DB::table('request_services')
 
-                    ->join('request_services','service_locations.serviceid','=','request_services.id')
-                    ->join('categories','request_services.categoryId','=','categories.id')
                     ->join('services','request_services.serviceId','=','services.id')
-                    ->join('users','request_services.userId','=','users.id')
-                    ->select('request_services.*','categories.*','services.*','users.*','service_apponments.*')
-                    ->where('service_apponments.engineerid',Sentinel::getUser()->id)
+                    ->join('categories','request_services.categoryId','=','categories.id')
+                    ->join('service_locations','service_locations.serviceId','=','request_services.id')
+                    ->join('service_apponments','request_services.id','=','service_apponments.serviceId')
+                    ->join('users','service_apponments.engineerid','=','users.id')
+                    ->select('request_services.*','categories.*','services.*','users.*','service_locations.*','service_apponments.*')
+                    ->where('request_services.userId',Sentinel::getUser()->id)
                     ->get();
-                  //  dd($workHistory);
-                return view('user.service.workHistory',compact('workHistorys'));
 
-              
+
+    $workHistoryNotAccepted=DB::table('request_services')
+
+                  ->join('services','request_services.serviceId','=','services.id')
+                  ->join('categories','request_services.categoryId','=','categories.id')
+                  ->join('service_locations','service_locations.serviceId','=','request_services.id')
+                  ->select('request_services.*','categories.*','services.*','service_locations.*')
+                  ->where('service_locations.publicationStatus',1)
+                  ->where('request_services.userId',Sentinel::getUser()->id)
+                  ->get();
+
+                return view('user.service.workHistory',compact('workHistoryAccepted','workHistoryNotAccepted'));
+
+
 
     }
 

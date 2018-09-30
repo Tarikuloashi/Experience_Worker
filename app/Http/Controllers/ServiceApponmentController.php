@@ -27,7 +27,8 @@ class ServiceApponmentController extends Controller
         $service=ServiceLocation::where('serviceId',$id)->first();
         $service->publicationStatus=0;
         $service->save();
-      
+        return redirect('/workHistory');
+
     }
 
     /**

@@ -1,3 +1,33 @@
+public function showService($id){
+  $requestServiceById=DB::table('request_services')
+
+                ->join('service_locations','service_locations.serviceId','=','request_services.id')
+                ->join('categories','request_services.categoryId','=','categories.id')
+                ->join('services','request_services.serviceId','=','services.id')
+                ->join('users','request_services.userId','=','users.id')
+                ->select('request_services.*','categories.*','services.*','users.*','service_locations.*')
+                ->where('service_locations.publicationStatus', 1)
+                ->where('request_services.id', $id)
+                ->first();
+dd($requestServiceById);
+
+             $engineer=serviceApponment::where('engineerid',Sentinel::getUser()->id)
+                ->first();
+                if(!empty($engineer)){
+                  return view('engineer.requestView.viewSingleRequest',compact('requestServiceById','engineer'));
+                }
+                else{
+                  $engineer=null;
+                  return view('engineer.requestView.viewSingleRequest',compact('requestServiceById','engineer'));
+
+                }
+
+                // dd($requestServiceById);
+
+}
+
+
+
 <!-- <nav class="navbar  navbar-fixed-top">
       <div class="container-fluid ">
          <div class="navbar-header fixed">
@@ -35,4 +65,3 @@
      </div>
  </nav>
    -->
-   

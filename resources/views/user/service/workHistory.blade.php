@@ -14,14 +14,15 @@
                     <div class="row"><div class="col-sm-12">
 
                                 <table class="table table-striped">
+                                  which not accepted
                         					<tr>
                         						<th>ID</th>
                         						<th>title</th>
                         						<th>User Description</th>
                         						<th>Category Name</th>
-                        						<th>User Name</th>
-                        						<th>User Email</th>
-                        						<th>User Phone</th>
+                        						<th>Engineer Name</th>
+                        						<th>Engineer Email</th>
+                        						<th>Engineer Phone</th>
 
 
                         						<th>Job Status</th>
@@ -29,24 +30,37 @@
 
                         					</tr>
 
-                                  @forelse($workHistorys as $workHistory)
+                                  @foreach($workHistoryAccepted as $accepted)
                         						<tr>
-                        								<td>{{$workHistory->id}}</td>
-                        								<td>{{$workHistory->title}}</td>
-                        								<td>{{$workHistory->description}}</td>
-                        								<td>{{$workHistory->categoryName}}</td>
-                        								<td>{{$workHistory->user_name}}</td>
-                        								<td>{{$workHistory->email}}</td>
-                        								<td>{{$workHistory->phone}}</td>
+                        								<td>{{$accepted->id}}</td>
+                        								<td>{{$accepted->title}}</td>
+                        								<td>{{$accepted->description}}</td>
+                        								<td>{{$accepted->categoryName}}</td>
+                        								<td>{{$accepted->user_name}}</td>
+                        								<td></td>
+                        								<td></td>
+                        								<td></td>
 
                         						</tr>
-                                  @empty
-                                  <tr>
-                                    <td colspan="9" class="text-center"><h4>You have no History</h4></td>
-                                  </tr>
+                                    @endforeach
+                                    @foreach($workHistoryNotAccepted as $notAccepted)
+                                      <tr>
+                                          <td>{{$notAccepted->id}}</td>
+                                          <td>{{$notAccepted->title}}</td>
+                                          <td>{{$notAccepted->description}}</td>
+                                          <td>{{$notAccepted->categoryName}}</td>
+                                          <td>{{$notAccepted->serviceName}}</td>
+                                          <td></td>
+                                          <td></td>
+                                          <td></td>
 
-                                  @endforelse
+                                      </tr>
+                                    @endforeach
+                                  
+
                         				</table>
+
+
                               </div>
                             </div>
                                 </div>

@@ -17,7 +17,7 @@
         <!-- service Image -->
         <div class="comment-widgets scrollable ps-container ps-theme-default" data-ps-id="4a675286-7fdf-e6d1-771b-fff5660d5e05" >
             <div class="" style="float:left">
-              <img src="{{asset('frontEnd/')}}/images/a1.png" alt="user" >
+              <img src="{{asset($requestServiceById->serviceImage)}}" alt="user" height="400px">
             </div>
         </div>
 
@@ -102,7 +102,8 @@
                     <a href="{{url('Appointment/service/'.$requestServiceById->serviceId)}}"class="btn btn-success">Accept Request</a>
 
                     @else
-                    <h1>You already assign anothor work</h1>
+                    <a href="{{url('/workHistory')}}" class="m-3 font-weight-bold text-center">You already assign anothor work please see this.</a>
+
                     @endif
                     @else
                     <a href="{{url('Appointment/service/'.$requestServiceById->serviceId)}}"class="btn btn-success">Accept Request</a>
