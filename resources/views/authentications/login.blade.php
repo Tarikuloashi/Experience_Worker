@@ -4,7 +4,7 @@
 
 <div class="agileits">
 	<div class="w3-agileits-info">
-
+		<h2 class="text-center text-success">{{Session::get('message')}}</h2>
 		<form class="form animate-form" id="form1" action="/login" method="POST">
 			{{csrf_field()}}
 			<p class="w3agileits">Login Here</p>
@@ -41,7 +41,7 @@
 			<br>
 			<span>Create Account<a href="{{url('/register')}}"> Register</a> </span>
 			<br>
-			<span><a href="/forgetPassword" >Forget My Password</a> </span>
+			<!-- <span><a href="/forgetPassword" >Forget My Password</a> </span> -->
 		</form>
 	</div>
 </div>

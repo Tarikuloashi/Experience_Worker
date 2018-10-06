@@ -31,7 +31,8 @@ class registrationController extends Controller
     	 $role->users()->attach($user);
 
         // $this->sendEmail($user, $activation->code);
-    	 return 'We send an email to confirm your account';
+        return redirect ('/login')->with('message','Account Create Successful');
+
     }
 
     private function sendEmail($user, $code){
