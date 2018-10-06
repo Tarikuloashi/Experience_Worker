@@ -16,8 +16,7 @@
 // });
 
 Route::get('/','frontEndController@home');
-Route::get('/about','frontEndController@about');
-Route::get('/allServices','frontEndController@allServices');
+
 
 
 Route::get('/map',function(){
@@ -47,16 +46,10 @@ Route::group(['middleware'=>'user'],function(){
 	Route::get('/userHome','userController@home');
 	Route::get('/userProfile','userController@profile');
 	Route::post('/userUpdateImage','userController@update_avatar');
-	// Route::get('/userPost','userController@post');
-	// Route::get('/userHistory','userController@history');
-	// Route::get('/userShowService','userController@showService');
-	// Route::get('/postRequest/{id}','userController@postRequest');
-	// Route::post('/saveRequest','userController@saveRequest');
 
   Route::get('/user/showService','userController@showService');
-  Route::get('/user/serviceDetails/{id}','userController@serviceDetails');
 
-  Route::get('/requestService','RequestServiceController@index');
+  Route::get('/requestService/{id}','RequestServiceController@index');
   Route::post('/postRequestService','RequestServiceController@storeRequest');
   Route::post('/RequestService/Location','RequestServiceController@storeLoction');
 	Route::get('/user/workHistory','userController@workHistory');
@@ -69,8 +62,10 @@ Route::group(['middleware'=>'engineer'],function(){
 	Route::get('/engineerHome','engineerController@home');
 	Route::get('/engineerProfile','engineerController@profile');
 	Route::post('/engineerUpdateImage','engineerController@update_avatar');
+
 	Route::get('/viewrequest','RequestServiceController@viewRequest');
 	Route::get('/view-Service/{id}','RequestServiceController@showService');
+
 	Route::get('Appointment/service/{id}','ServiceApponmentController@apponment');
 	Route::get('workHistory','engineerController@workHistory');
 	Route::get('jobDone/{id}','engineerController@jobDone');
@@ -101,7 +96,6 @@ Route::group(['middleware'=>'admin'],function(){
         Route::get('/service/add','ServiceController@create');
 		    Route::post('/service/save','ServiceController@store');
     		Route::get('/service/manage','ServiceController@manage');
-    		Route::get('/service/view/{id}','ServiceController@view');
     		Route::get('/service/edit/{id}','ServiceController@edit');
     		Route::post('/service/update','ServiceController@update');
     		Route::get('/service/delete/{id}','ServiceController@delete');

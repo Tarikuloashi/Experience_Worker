@@ -34,7 +34,7 @@
         <div class="comment-widgets scrollable ps-container ps-theme-default" data-ps-id="4a675286-7fdf-e6d1-771b-fff5660d5e05" >
             <div class="d-flex flex-row comment-row m-t-0">
                 <div class=" comment-text w-100">
-                    <h4 class="font-medium">Problem Title:</h4>
+                    <h4 class="font-medium text-primary">Problem Title:</h4>
                     <span class="d-block">{{$requestServiceById->title}}</span>
                 </div>
             </div>
@@ -43,7 +43,7 @@
           <div class="comment-widgets scrollable ps-container ps-theme-default" data-ps-id="4a675286-7fdf-e6d1-771b-fff5660d5e05" >
               <div class="d-flex flex-row comment-row m-t-0">
                   <div class=" comment-text w-100">
-                      <h4 class="font-medium">Problem Description:</h4>
+                      <h4 class="font-medium text-primary">Problem Description:</h4>
                       <span class="d-block">{{$requestServiceById->description}}</span>
                   </div>
               </div>
@@ -53,7 +53,7 @@
             <div class="comment-widgets scrollable ps-container ps-theme-default" data-ps-id="4a675286-7fdf-e6d1-771b-fff5660d5e05" >
                 <div class="d-flex flex-row comment-row m-t-0">
                     <div class=" comment-text w-100">
-                        <h4 class="font-medium">Service Name:</h4>
+                        <h4 class="font-medium text-primary">Service Name:</h4>
                         <span class="d-block">{{$requestServiceById->serviceName}}</span>
                     </div>
                 </div>
@@ -63,7 +63,7 @@
               <div class="comment-widgets scrollable ps-container ps-theme-default" data-ps-id="4a675286-7fdf-e6d1-771b-fff5660d5e05" >
                   <div class="d-flex flex-row comment-row m-t-0">
                       <div class=" comment-text w-100">
-                          <h4 class="font-medium">Service Description:</h4>
+                          <h4 class="font-medium text-primary">Service Description:</h4>
                           <span class="d-block">{{$requestServiceById->serviceDescription}}</span>
                       </div>
                   </div>
@@ -73,21 +73,21 @@
                 <div class="comment-widgets scrollable ps-container ps-theme-default" data-ps-id="4a675286-7fdf-e6d1-771b-fff5660d5e05" >
                     <div class="d-flex flex-row comment-row m-t-0">
                         <div class=" comment-text w-100">
-                            <h4 class="font-medium">Service Minimum Price:</h4>
-                            <span class="d-block">{{$requestServiceById->minPrice}}</span>
+                            <h4 class="font-medium">Pricing:</h4>
+                            <span class="d-block " style="color:red">Visiting Charge: {{$requestServiceById->minPrice}} Taka.</span>
                         </div>
                     </div>
                   </div>
 
                   <!-- Service Max Price -->
-                  <div class="comment-widgets scrollable ps-container ps-theme-default" data-ps-id="4a675286-7fdf-e6d1-771b-fff5660d5e05" >
+                  <!-- <div class="comment-widgets scrollable ps-container ps-theme-default" data-ps-id="4a675286-7fdf-e6d1-771b-fff5660d5e05" >
                       <div class="d-flex flex-row comment-row m-t-0">
                           <div class=" comment-text w-100">
                               <h4 class="font-medium">Service Maximum Price:</h4>
                               <span class="d-block">{{$requestServiceById->maxPrice}}</span>
                           </div>
                       </div>
-                    </div>
+                    </div> -->
 
                     <div class="comment-widgets scrollable ps-container ps-theme-default" data-ps-id="4a675286-7fdf-e6d1-771b-fff5660d5e05" >
                         <div class="d-flex flex-row comment-row m-t-0">
@@ -96,13 +96,14 @@
                             </div>
                         </div>
                       </div>
-                        <div id="map"></div>
+                        <!-- <div id="map"></div> -->
+
                     @if($engineer!=null)
                     @if($engineer->jobstatus=='yes')
-                    <a href="{{url('Appointment/service/'.$requestServiceById->serviceId)}}"class="btn btn-success">Accept Request</a>
+                      <a href="{{url('Appointment/service/'.$requestServiceById->serviceId)}}"class="btn btn-success">Accept Request</a>
 
                     @else
-                    <a href="{{url('/workHistory')}}" class="m-3 font-weight-bold text-center">You already assign anothor work please see this.</a>
+                      <a href="{{url('/workHistory')}}" class="m-3 font-weight-bold text-center">You already assign anothor work please see this.</a>
 
                     @endif
                     @else

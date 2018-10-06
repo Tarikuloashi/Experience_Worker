@@ -53,7 +53,6 @@ class engineerController extends Controller
 
     public function workHistory(){
       $workHistorys=DB::table('service_apponments')
-
                     ->join('request_services','service_apponments.serviceid','=','request_services.id')
                     ->join('categories','request_services.categoryId','=','categories.id')
                     ->join('services','request_services.serviceId','=','services.id')

@@ -54,78 +54,34 @@ class userController extends Controller
     }
 
     public function showService(){
-      $services= Service::all();
+      // $services= Service::all();
+      $services=DB::table('services')
+                ->join('categories','services.categoryid','=','categories.id')
+                ->select('services.*','categories.categoryName')
+                ->get();
       return view('user.service.showService',['services'=>$services]);
     }
 
-    public function serviceDetails($id){
-        $serviceById=Service::where('id',$id)->first();
-    	return view('user.service.serviceDetails',['serviceById'=>$serviceById]);
-    }
 
     public function workHistory(){
       $workHistoryAccepted=DB::table('request_services')
-
+                    ->orderby('request_services.created_at', 'desc')
                     ->join('services','request_services.serviceId','=','services.id')
                     ->join('categories','request_services.categoryId','=','categories.id')
-                    ->join('service_locations','service_locations.serviceId','=','request_services.id')
-                    ->join('service_apponments','request_services.id','=','service_apponments.serviceId')
-                    ->join('users','service_apponments.engineerid','=','users.id')
+                    ->leftjoin('service_locations','service_locations.serviceId','=','request_services.id')
+                    ->leftjoin('service_apponments','request_services.id','=','service_apponments.serviceId')
+                    ->leftjoin('users','service_apponments.engineerid','=','users.id')
                     ->select('request_services.*','categories.*','services.*','users.*','service_locations.*','service_apponments.*')
                     ->where('request_services.userId',Sentinel::getUser()->id)
                     ->get();
 
 
-    $workHistoryNotAccepted=DB::table('request_services')
-
-                  ->join('services','request_services.serviceId','=','services.id')
-                  ->join('categories','request_services.categoryId','=','categories.id')
-                  ->join('service_locations','service_locations.serviceId','=','request_services.id')
-                  ->select('request_services.*','categories.*','services.*','service_locations.*')
-                  ->where('service_locations.publicationStatus',1)
-                  ->where('request_services.userId',Sentinel::getUser()->id)
-                  ->get();
-
-                return view('user.service.workHistory',compact('workHistoryAccepted','workHistoryNotAccepted'));
+                return view('user.service.workHistory',compact('workHistoryAccepted'));
 
 
 
     }
 
-    // public function post(){
-    // 	return view('users.userPost');
-    // }
-    // public function history(){
-    // 	return view('users.userHistory');
-    // }
-    //
-    // public function showService(){
-    //   $services=Service::all();
-    //   return view('users.showService',['services'=>$services]);
-    // }
-    //
-    // public function postRequest($id){
-    //   $serviceById=Service::where('id',$id)->first();
-    //   return view('users.postRequest',['serviceById'=>$serviceById]);
-    // }
-    //
-    // public function saveRequest(Request $request){
-    //   $allServiceRequest=new serviceRequest();
-    //   $allServiceRequest->userId=Sentinel::getUser()->id;
-    //   $allServiceRequest->serviceName=$request->serviceName;
-    //   $allServiceRequest->servicePrice=$request->servicePrice;
-    //   $allServiceRequest->serviceDescription=$request->serviceDescription;
-    //   $allServiceRequest->userDescription=$request->userDescription;
-    //   $allServiceRequest->lat=$request->lat;
-    //   $allServiceRequest->lng=$request->lng;
-    //   $allServiceRequest->save();
-    //   return redirect('users/userShowService')->with('message','Service Request Post successfully');
-    //     // // echo '<pre>';
-    //     // // print_r($user);
-    //     // // exit();
-    //     // echo $allServiceRequest;
-    //
-    // }
 
 
 

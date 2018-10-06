@@ -15,15 +15,15 @@ use App\serviceApponment;
 
 class RequestServiceController extends Controller
 {
-  public function index(){
-    $services= Service::all();
-    $categories= Category::all();
-    return view('user.service.requestService',compact('services','categories'));
+  public function index($id){
+    $serviceById=Service::where('id',$id)->first();
+    //dd($serviceById);
+    return view('user.service.requestService',compact('serviceById'));
   }
 
 
   public function storeRequest(Request $request){
-      //return $request->all();
+      // return $request->all();
       $service = new RequestService();
       $service->title = $request->title;
       $service->userId = Sentinel::getUser()->id;
@@ -82,17 +82,18 @@ class RequestServiceController extends Controller
 
 
               $engineer=serviceApponment::where('engineerid',Sentinel::getUser()->id)
-                 ->first();
+                  ->orderby('id','desc')
+                  ->first();
+
                  if(!empty($engineer)){
                    return view('engineer.requestView.viewSingleRequest',compact('requestServiceById','engineer'));
                  }
                  else{
                    $engineer=null;
                    return view('engineer.requestView.viewSingleRequest',compact('requestServiceById','engineer'));
-
                  }
 
-                 // dd($requestServiceById);
+               //dd($engineer);
 
 }
 

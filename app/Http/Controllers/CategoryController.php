@@ -32,7 +32,7 @@ class CategoryController extends Controller
     	$category->categoryDescription=$request->categoryDescription;
     	$category->publicationStatus=$request->publicationStatus;
     	$category->save();
-    	return redirect ('category/manage')->with('message','category create successful');
+    	return redirect ('category/manage')->with('message','Category Create Successful');
     }
 
     public function edit($id){
@@ -41,7 +41,7 @@ class CategoryController extends Controller
     }
 
     public function update(Request $request){
-       // dd($request->all());
+        // dd($request->all());
       $categoryup=Category::find($request->id);
       $categoryup->categoryName=$request->categoryName;
     	$categoryup->categoryDescription=$request->categoryDescription;

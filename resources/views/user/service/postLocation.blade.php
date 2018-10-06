@@ -22,8 +22,8 @@
           </div>
 
           <div class="form-group ">
-      				<h2 class="text-center">Please give your Location:</h2>
-      				<input class="form-control" type="text" value="Search Location" name="place" id="searchmap">
+      				<h2 class="text-center">Please search your Location:</h2>
+      				<input class="form-control" type="text" name="place" id="searchmap">
               <br>
       				<div id="map-canvas" class="shadow-lg"></div>
     			</div>
@@ -102,8 +102,8 @@
 
 	var map = new google.maps.Map(document.getElementById('map-canvas'),{
 		center:{
-			lat: 27.72,
-        	lng: 85.36
+      lat: 23.7464653,
+      lng: 90.3760125,
 		},
 		zoom:15
 	});

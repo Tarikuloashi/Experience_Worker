@@ -11,38 +11,24 @@
                   <div class="card-body">
 
                       <div class="form-group row">
-                          <label class="col-sm-3 text-right control-label col-form-label">Service Request Title</label>
+                          <label class="col-sm-3 text-right control-label col-form-label">Problem Title</label>
                           <div class="col-sm-9">
-                              <input type="text" name="title" class="form-control"  placeholder="Service Request Title">
-                          </div>
-                      </div>
-                      <div class="form-group row">
-                          <label class="col-sm-3 text-right control-label col-form-label">Category Name</label>
-                          <div class="col-sm-9">
-                            <select class="form-control" name="category">
-                              <option>Select Category Name</option>
-                              @foreach($categories as $category)
-                              <option value="{{$category->id}}">{{$category->categoryName}}</option>
-                              @endforeach
-                            </select>
-                          </div>
-                      </div>
-                      <div class="form-group row">
-                          <label class="col-sm-3 text-right control-label col-form-label">Service Name</label>
-                          <div class="col-sm-9">
-                            <select class="form-control" name="service">
-                              <option>Select Service Name</option>
-                              @foreach($services as $category)
-                              <option value="{{$category->id}}">{{$category->serviceName}}</option>
-                              @endforeach
-                            </select>
+                              <input type="text" name="title" class="form-control"  placeholder="Give a title of your problem" required>
                           </div>
                       </div>
 
+                            <input type="hidden" class="form-control input-sm" value="{{$serviceById->id}}" name="service">
+
+
+
+                            <input type="hidden" class="form-control input-sm" value="{{$serviceById->categoryid}}" name="category">
+
+
+
                       <div class="form-group row">
-                          <label class="col-sm-3 text-right control-label col-form-label">Description</label>
+                          <label class="col-sm-3 text-right control-label col-form-label">Problem Description</label>
                           <div class="col-sm-9">
-                              <textarea class="form-control" rows="6" name="description"></textarea>
+                              <textarea class="form-control" rows="6" name="description" placeholder="Please describe your problem."></textarea>
                           </div>
                       </div>
                   </div>

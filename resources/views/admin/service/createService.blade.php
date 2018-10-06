@@ -4,7 +4,7 @@
 
   <div class="row">
     <div class="col-md-8 mx-auto">
-        <div class="card">
+        <div class="card shadow-lg">
             <form class="" action="/service/save" method="post" enctype="multipart/form-data" >
               {{csrf_field()}}
                 <div class="card-body mx-auto">
@@ -12,7 +12,7 @@
                     <div class="form-group row">
                         <label for="fname" class="col-sm-3 text-right control-label col-form-label">Category Name</label>
                         <div class="col-sm-9">
-                          <select class="form-control" name="categoryid">
+                          <select class="form-control" name="categoryid" required>
                 						<option>Select Category Name</option>
                 						@foreach($categories as $category)
                 						<option value="{{$category->id}}">{{$category->categoryName}}</option>
@@ -24,7 +24,7 @@
                     <div class="form-group row">
                         <label for="fname" class="col-sm-3 text-right control-label col-form-label">Sevice Name</label>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control" name="serviceName">
+                          <input type="text" class="form-control" name="serviceName" required>
                           <span class="text-danger">{{$errors->has('serviceName')?$errors->first('serviceName'):''}}</span>
                         </div>
                     </div>
@@ -32,14 +32,14 @@
                     <div class="form-group row">
                         <label for="fname" class="col-sm-3 text-right control-label col-form-label">Sevice Min Price</label>
                         <div class="col-sm-9">
-                          <input type="number" class="form-control" name="minPrice">
+                          <input type="number" class="form-control" name="minPrice" required>
                         </div>
                     </div>
 
                     <div class="form-group row">
                         <label for="fname" class="col-sm-3 text-right control-label col-form-label">Sevice Max Price</label>
                         <div class="col-sm-9">
-                          <input type="number" class="form-control" name="maxPrice">
+                          <input type="number" class="form-control" name="maxPrice" required>
                         </div>
                     </div>
 
@@ -53,7 +53,7 @@
                     <div class="form-group row">
                         <label for="email1" class="col-sm-3 text-right control-label col-form-label">Service Image</label>
                         <div class="col-sm-9">
-                          <input type="file"  name="serviceImage" >
+                          <input type="file"  name="serviceImage" required>
                         </div>
                     </div>
                 </div>

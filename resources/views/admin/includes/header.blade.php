@@ -8,15 +8,11 @@
             <!-- ============================================================== -->
             <a class="navbar-brand" href="{{url('/adminHome')}}">
                 <!-- Logo icon -->
-                <b class="logo-icon p-l-10">
-
-                  <h3> <i class="fas fa-home"></i> Service Provider</h3>
-                
-                </b>
+                <!-- Logo icon -->
+                <b class="logo-icon p-l-10"><i class="fas fa-map-marker-alt "></i></b>
                 <!--End Logo icon -->
                  <!-- Logo text -->
-                <span class="logo-text">
-                    </span>
+                <span class="logo-text"> Online Service Provider</span>
 
             </a>
             <!-- ============================================================== -->

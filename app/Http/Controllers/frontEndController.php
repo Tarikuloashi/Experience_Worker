@@ -10,15 +10,11 @@ use App\Category;
 class frontEndController extends Controller
 {
     public function home(){
-      return view('frontEnd.home.homeContent');
+      $services=DB::table('services')
+                ->join('categories','services.categoryid','=','categories.id')
+                ->select('services.*','categories.categoryName')
+                ->get();
+      return view('visitors.home',['services'=>$services]);
     }
 
-    public function about(){
-      return view('frontEnd.about.aboutContent');
-    }
-
-    public function allServices(){
-      $services= Service::all();
-      return view('frontEnd.service.allService',['services'=>$services]);
-    }
 }
